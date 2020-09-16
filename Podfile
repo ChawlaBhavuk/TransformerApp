@@ -6,7 +6,8 @@ target 'TransformerApp' do
   use_frameworks!
 
   # Pods for TransformerApp
-pod 'SwiftLint'
+  pod 'SwiftLint'
+  pod 'SwiftKeychainWrapper'
 
   target 'TransformerAppTests' do
     inherit! :search_paths

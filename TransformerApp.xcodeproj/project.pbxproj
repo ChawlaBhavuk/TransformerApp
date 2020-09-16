@@ -3,11 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		21BEA97B19005D6DBE78A3BA /* Pods_TransformerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11FA98184A1177C9A8A79284 /* Pods_TransformerAppTests.framework */; };
+		6809ED9E2512507A00F3A27D /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809ED9D2512507A00F3A27D /* AppStrings.swift */; };
+		6809EDA1251270E000F3A27D /* TransformerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDA0251270E000F3A27D /* TransformerModel.swift */; };
+		6834B12F25124A4B00310126 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834B12E25124A4B00310126 /* Connectivity.swift */; };
+		6834B13125124A4E00310126 /* AppEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834B13025124A4E00310126 /* AppEndPoint.swift */; };
+		6834B13325124A5400310126 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834B13225124A5400310126 /* NetworkManager.swift */; };
 		685A9BCD25123A6A00766678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685A9BCC25123A6A00766678 /* AppDelegate.swift */; };
 		685A9BD125123A6A00766678 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685A9BD025123A6A00766678 /* ViewController.swift */; };
 		685A9BD425123A6A00766678 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685A9BD225123A6A00766678 /* Main.storyboard */; };
@@ -30,6 +35,11 @@
 /* Begin PBXFileReference section */
 		11FA98184A1177C9A8A79284 /* Pods_TransformerAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransformerAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		339A3F9C0926E10DBF8269C9 /* Pods-TransformerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformerAppTests.release.xcconfig"; path = "Target Support Files/Pods-TransformerAppTests/Pods-TransformerAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		6809ED9D2512507A00F3A27D /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
+		6809EDA0251270E000F3A27D /* TransformerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerModel.swift; sourceTree = "<group>"; };
+		6834B12E25124A4B00310126 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		6834B13025124A4E00310126 /* AppEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEndPoint.swift; sourceTree = "<group>"; };
+		6834B13225124A5400310126 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		685A9BC925123A6A00766678 /* TransformerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransformerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685A9BCC25123A6A00766678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		685A9BD025123A6A00766678 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +76,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6809ED9C2512506800F3A27D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6809ED9D2512507A00F3A27D /* AppStrings.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		6809ED9F251270C300F3A27D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6809EDA0251270E000F3A27D /* TransformerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6834B1292512489300310126 /* AppConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				685A9BDA25123A7500766678 /* Info.plist */,
+				685A9BCC25123A6A00766678 /* AppDelegate.swift */,
+			);
+			path = AppConfiguration;
+			sourceTree = "<group>";
+		};
+		6834B12A2512489F00310126 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				685A9BD725123A7500766678 /* LaunchScreen.storyboard */,
+				685A9BD225123A6A00766678 /* Main.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		6834B12B251248E700310126 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				685A9BD525123A7500766678 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6834B13425124A7300310126 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				6834B13725124A9200310126 /* Manager */,
+				6834B13625124A8400310126 /* EndPoint */,
+				6834B13525124A7D00310126 /* Connectivity */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		6834B13525124A7D00310126 /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				6834B12E25124A4B00310126 /* Connectivity.swift */,
+			);
+			path = Connectivity;
+			sourceTree = "<group>";
+		};
+		6834B13625124A8400310126 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				6834B13025124A4E00310126 /* AppEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		6834B13725124A9200310126 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6834B13225124A5400310126 /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		685A9BC025123A6A00766678 = {
 			isa = PBXGroup;
 			children = (
@@ -89,12 +175,13 @@
 		685A9BCB25123A6A00766678 /* TransformerApp */ = {
 			isa = PBXGroup;
 			children = (
-				685A9BCC25123A6A00766678 /* AppDelegate.swift */,
+				6809ED9C2512506800F3A27D /* Constants */,
+				6834B1292512489300310126 /* AppConfiguration */,
+				6834B12B251248E700310126 /* Resources */,
+				6834B12A2512489F00310126 /* StoryBoard */,
+				6834B13425124A7300310126 /* NetworkLayer */,
+				6809ED9F251270C300F3A27D /* Model */,
 				685A9BD025123A6A00766678 /* ViewController.swift */,
-				685A9BD225123A6A00766678 /* Main.storyboard */,
-				685A9BD525123A7500766678 /* Assets.xcassets */,
-				685A9BD725123A7500766678 /* LaunchScreen.storyboard */,
-				685A9BDA25123A7500766678 /* Info.plist */,
 			);
 			path = TransformerApp;
 			sourceTree = "<group>";
@@ -116,7 +203,6 @@
 				A1E564E5A7C906D69C38375A /* Pods-TransformerAppTests.debug.xcconfig */,
 				339A3F9C0926E10DBF8269C9 /* Pods-TransformerAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,6 +226,7 @@
 				685A9BC525123A6A00766678 /* Sources */,
 				685A9BC625123A6A00766678 /* Frameworks */,
 				685A9BC725123A6A00766678 /* Resources */,
+				F610DF1E3195CF8FDFFC6D9D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,6 +359,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F610DF1E3195CF8FDFFC6D9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransformerApp/Pods-TransformerApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransformerApp/Pods-TransformerApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TransformerApp/Pods-TransformerApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -280,7 +384,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				685A9BD125123A6A00766678 /* ViewController.swift in Sources */,
+				6809ED9E2512507A00F3A27D /* AppStrings.swift in Sources */,
 				685A9BCD25123A6A00766678 /* AppDelegate.swift in Sources */,
+				6834B13325124A5400310126 /* NetworkManager.swift in Sources */,
+				6834B13125124A4E00310126 /* AppEndPoint.swift in Sources */,
+				6834B12F25124A4B00310126 /* Connectivity.swift in Sources */,
+				6809EDA1251270E000F3A27D /* TransformerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M2P78582;
-				INFOPLIST_FILE = TransformerApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TransformerApp/AppConfiguration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,7 +571,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M2P78582;
-				INFOPLIST_FILE = TransformerApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TransformerApp/AppConfiguration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -12,6 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        var networkManager = NetworkManager()
+
+        networkManager.getDataFromApi(type: WelcomeTransformers.self,
+                                      call: .getData) { [weak self] jsonData, errorMessage  in
+        print(jsonData)
+        }
         // Do any additional setup after loading the view.
     }
 
