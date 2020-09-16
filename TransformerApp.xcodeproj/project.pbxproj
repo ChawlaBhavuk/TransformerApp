@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21BEA97B19005D6DBE78A3BA /* Pods_TransformerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11FA98184A1177C9A8A79284 /* Pods_TransformerAppTests.framework */; };
 		685A9BCD25123A6A00766678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685A9BCC25123A6A00766678 /* AppDelegate.swift */; };
 		685A9BD125123A6A00766678 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685A9BD025123A6A00766678 /* ViewController.swift */; };
 		685A9BD425123A6A00766678 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685A9BD225123A6A00766678 /* Main.storyboard */; };
 		685A9BD625123A7500766678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 685A9BD525123A7500766678 /* Assets.xcassets */; };
 		685A9BD925123A7500766678 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685A9BD725123A7500766678 /* LaunchScreen.storyboard */; };
 		685A9BE425123A7500766678 /* TransformerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685A9BE325123A7500766678 /* TransformerAppTests.swift */; };
+		B8ABD2A54F6355A4ACF9774F /* Pods_TransformerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EE7A0F39F68158A25FE475 /* Pods_TransformerApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11FA98184A1177C9A8A79284 /* Pods_TransformerAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransformerAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		339A3F9C0926E10DBF8269C9 /* Pods-TransformerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformerAppTests.release.xcconfig"; path = "Target Support Files/Pods-TransformerAppTests/Pods-TransformerAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		685A9BC925123A6A00766678 /* TransformerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransformerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685A9BCC25123A6A00766678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		685A9BD025123A6A00766678 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +40,10 @@
 		685A9BDF25123A7500766678 /* TransformerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransformerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		685A9BE325123A7500766678 /* TransformerAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerAppTests.swift; sourceTree = "<group>"; };
 		685A9BE525123A7500766678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D6595DFEAAAF06B88E84C17 /* Pods-TransformerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformerApp.release.xcconfig"; path = "Target Support Files/Pods-TransformerApp/Pods-TransformerApp.release.xcconfig"; sourceTree = "<group>"; };
+		A1E564E5A7C906D69C38375A /* Pods-TransformerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TransformerAppTests/Pods-TransformerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB454B96C3C2295690F8E7C4 /* Pods-TransformerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformerApp.debug.xcconfig"; path = "Target Support Files/Pods-TransformerApp/Pods-TransformerApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E8EE7A0F39F68158A25FE475 /* Pods_TransformerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransformerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8ABD2A54F6355A4ACF9774F /* Pods_TransformerApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21BEA97B19005D6DBE78A3BA /* Pods_TransformerAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +72,8 @@
 				685A9BCB25123A6A00766678 /* TransformerApp */,
 				685A9BE225123A7500766678 /* TransformerAppTests */,
 				685A9BCA25123A6A00766678 /* Products */,
+				6E90B18F324BEB0930575AB8 /* Pods */,
+				CFC2858D66A6C3601A9DD6D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +108,27 @@
 			path = TransformerAppTests;
 			sourceTree = "<group>";
 		};
+		6E90B18F324BEB0930575AB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB454B96C3C2295690F8E7C4 /* Pods-TransformerApp.debug.xcconfig */,
+				6D6595DFEAAAF06B88E84C17 /* Pods-TransformerApp.release.xcconfig */,
+				A1E564E5A7C906D69C38375A /* Pods-TransformerAppTests.debug.xcconfig */,
+				339A3F9C0926E10DBF8269C9 /* Pods-TransformerAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CFC2858D66A6C3601A9DD6D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8EE7A0F39F68158A25FE475 /* Pods_TransformerApp.framework */,
+				11FA98184A1177C9A8A79284 /* Pods_TransformerAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,6 +136,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 685A9BE825123A7500766678 /* Build configuration list for PBXNativeTarget "TransformerApp" */;
 			buildPhases = (
+				84E5EB0B8953C11A53273E79 /* [CP] Check Pods Manifest.lock */,
 				685A9BC525123A6A00766678 /* Sources */,
 				685A9BC625123A6A00766678 /* Frameworks */,
 				685A9BC725123A6A00766678 /* Resources */,
@@ -120,6 +154,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 685A9BEB25123A7500766678 /* Build configuration list for PBXNativeTarget "TransformerAppTests" */;
 			buildPhases = (
+				318D7B199771740EC74D3C26 /* [CP] Check Pods Manifest.lock */,
 				685A9BDB25123A7500766678 /* Sources */,
 				685A9BDC25123A7500766678 /* Frameworks */,
 				685A9BDD25123A7500766678 /* Resources */,
@@ -191,6 +226,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		318D7B199771740EC74D3C26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TransformerAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84E5EB0B8953C11A53273E79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TransformerApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		685A9BC525123A6A00766678 /* Sources */ = {
@@ -356,6 +438,7 @@
 		};
 		685A9BE925123A7500766678 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB454B96C3C2295690F8E7C4 /* Pods-TransformerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -374,6 +457,7 @@
 		};
 		685A9BEA25123A7500766678 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D6595DFEAAAF06B88E84C17 /* Pods-TransformerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -392,6 +476,7 @@
 		};
 		685A9BEC25123A7500766678 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1E564E5A7C906D69C38375A /* Pods-TransformerAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -414,6 +499,7 @@
 		};
 		685A9BED25123A7500766678 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 339A3F9C0926E10DBF8269C9 /* Pods-TransformerAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
