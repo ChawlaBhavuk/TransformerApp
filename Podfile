@@ -8,6 +8,7 @@ target 'TransformerApp' do
   # Pods for TransformerApp
   pod 'SwiftLint'
   pod 'SwiftKeychainWrapper'
+  pod 'Kingfisher'
 
   target 'TransformerAppTests' do
     inherit! :search_paths

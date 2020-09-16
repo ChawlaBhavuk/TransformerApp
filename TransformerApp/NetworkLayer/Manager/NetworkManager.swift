@@ -25,8 +25,6 @@ protocol NetworkRouter: class {
 
 class  NetworkManager: NetworkRouter {
 
-
-
     /// for getting data from api
     /// - Parameters:
     ///   - type: Model type
@@ -42,7 +40,7 @@ class  NetworkManager: NetworkRouter {
             request.setValue(headers.value, forHTTPHeaderField: headers.key)
         }
 
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
             if self.getToken() == nil {
                 self.saveToken(type: type.self, data: data, call: call, completion: completion)
             } else {
@@ -57,7 +55,6 @@ class  NetworkManager: NetworkRouter {
         }.resume()
     }
 
-
     /// For save token in keychain
     /// - Parameters:
     ///   - type: Model type
@@ -65,7 +62,7 @@ class  NetworkManager: NetworkRouter {
     ///   - call: Api Call Type
     ///   - completion: Sending Result
     private func saveToken<T: Decodable>(type: T.Type, data: Data?,
-                                 call: ApiCall, completion: @escaping ServiceResponse<T>) {
+                                         call: ApiCall, completion: @escaping ServiceResponse<T>) {
         guard let data = data,
             let token = String(data: data, encoding: .utf8) else {
                 self.getDataFromApi(type: type.self, call: .getToken, completion: completion)
@@ -112,7 +109,6 @@ class  NetworkManager: NetworkRouter {
 
     }
 
-
     /// Common end point for network calls
     /// - Parameters:
     ///   - token: Authorization token
@@ -129,7 +125,6 @@ class  NetworkManager: NetworkRouter {
         let endPoint = EndPointType(baseURL: url, headers: headers, httpMethod: .get)
         return endPoint
     }
-
 
     /// Fetch token from keychain
     /// - Returns:Authorization token

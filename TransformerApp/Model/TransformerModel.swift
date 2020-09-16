@@ -11,6 +11,13 @@ import Foundation
 // MARK: - Welcome
 struct WelcomeTransformers: Codable {
     let transformers: [Transformer]
+
+    static func getFormat(transformers: [Transformer]) -> [String: [Transformer]] {
+        let autobotsArray = transformers.filter { $0.team == "A" }
+        let decepticonsArray = transformers.filter { $0.team == "D" }
+        return [AppStrings.Teams.autobots: autobotsArray,
+                    AppStrings.Teams.decepticons: decepticonsArray]
+    }
 }
 
 // MARK: - Transformer
