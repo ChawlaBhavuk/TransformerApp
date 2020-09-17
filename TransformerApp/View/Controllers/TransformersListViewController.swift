@@ -23,7 +23,11 @@ class TransformersListViewController: UIViewController {
             tableView.registerHeader(headerClass: TransformerHeaderView.self)
         }
     }
-    @IBOutlet weak var battleBtn: UIButton!
+    @IBOutlet weak var battleBtn: UIButton! {
+        didSet {
+            battleBtn.isHidden = true
+        }
+    }
 
     var networkManager: NetworkRouter = NetworkManager()
 
@@ -42,18 +46,29 @@ class TransformersListViewController: UIViewController {
     }
 
     @IBAction private func battleClicked(_ sender: UIButton) {
+        self.pushToBattleVC()
     }
 
     @IBAction private func clearClicked(_ sender: UIBarButtonItem) {
         viewModel.clearSession()
     }
 
+    /// Move to Add or Edit Transformer View Controller
+    /// - Parameter transformer: pass transformer for data for edit
     private func pushToAddEditTransformer(transformer: Transformer? = nil) {
         guard let newViewController = self.storyboard?.instantiateViewController(withIdentifier:
             ChangeTransformerViewController.className) as? ChangeTransformerViewController else {
                 return
         }
         newViewController.transformer = transformer
+        self.navigationController?.pushViewController(newViewController, animated: true)
+    }
+
+    private func pushToBattleVC() {
+        guard let newViewController = self.storyboard?.instantiateViewController(withIdentifier:
+            BattleViewController.className) as? BattleViewController else {
+                return
+        }
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
 

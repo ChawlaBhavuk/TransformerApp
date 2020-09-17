@@ -14,6 +14,9 @@
 		680335FB25138EA500FE99D6 /* FeatureFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680335F925138EA500FE99D6 /* FeatureFieldTableViewCell.xib */; };
 		680335FD2513968400FE99D6 /* ChangeTransformerViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680335FC2513968400FE99D6 /* ChangeTransformerViewModal.swift */; };
 		680336022513F66A00FE99D6 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680336012513F66A00FE99D6 /* AppConstant.swift */; };
+		680336052513FA2700FE99D6 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680336042513FA2700FE99D6 /* BattleViewController.swift */; };
+		680336072513FD8700FE99D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680336062513FD8700FE99D6 /* Main.storyboard */; };
+		680336092513FDAD00FE99D6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680336082513FDAD00FE99D6 /* Launch Screen.storyboard */; };
 		6809ED9E2512507A00F3A27D /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809ED9D2512507A00F3A27D /* AppStrings.swift */; };
 		6809EDA1251270E000F3A27D /* TransformerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDA0251270E000F3A27D /* TransformerModel.swift */; };
 		6809EDA7251287F200F3A27D /* TranformersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */; };
@@ -26,9 +29,7 @@
 		6834B13325124A5400310126 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834B13225124A5400310126 /* NetworkManager.swift */; };
 		685A9BCD25123A6A00766678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685A9BCC25123A6A00766678 /* AppDelegate.swift */; };
 		685A9BD125123A6A00766678 /* TransformersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685A9BD025123A6A00766678 /* TransformersListViewController.swift */; };
-		685A9BD425123A6A00766678 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685A9BD225123A6A00766678 /* Main.storyboard */; };
 		685A9BD625123A7500766678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 685A9BD525123A7500766678 /* Assets.xcassets */; };
-		685A9BD925123A7500766678 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685A9BD725123A7500766678 /* LaunchScreen.storyboard */; };
 		685A9BE425123A7500766678 /* TransformerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685A9BE325123A7500766678 /* TransformerAppTests.swift */; };
 		68C587FC25128DEA00407D83 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C587FB25128DEA00407D83 /* UIView+Extension.swift */; };
 		68C5880025129C1B00407D83 /* TransformerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C587FE25129C1B00407D83 /* TransformerHeaderView.swift */; };
@@ -61,6 +62,9 @@
 		680335F925138EA500FE99D6 /* FeatureFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureFieldTableViewCell.xib; sourceTree = "<group>"; };
 		680335FC2513968400FE99D6 /* ChangeTransformerViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTransformerViewModal.swift; sourceTree = "<group>"; };
 		680336012513F66A00FE99D6 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
+		680336042513FA2700FE99D6 /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
+		680336062513FD8700FE99D6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		680336082513FDAD00FE99D6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6809ED9D2512507A00F3A27D /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
 		6809EDA0251270E000F3A27D /* TransformerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerModel.swift; sourceTree = "<group>"; };
 		6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranformersTableViewCell.swift; sourceTree = "<group>"; };
@@ -74,9 +78,7 @@
 		685A9BC925123A6A00766678 /* TransformerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransformerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685A9BCC25123A6A00766678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		685A9BD025123A6A00766678 /* TransformersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersListViewController.swift; sourceTree = "<group>"; };
-		685A9BD325123A6A00766678 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		685A9BD525123A7500766678 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		685A9BD825123A7500766678 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		685A9BDA25123A7500766678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		685A9BDF25123A7500766678 /* TransformerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransformerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		685A9BE325123A7500766678 /* TransformerAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerAppTests.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			children = (
 				685A9BD025123A6A00766678 /* TransformersListViewController.swift */,
 				680335F325138B8A00FE99D6 /* ChangeTransformerViewController.swift */,
+				680336042513FA2700FE99D6 /* BattleViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -206,8 +209,8 @@
 		6834B12A2512489F00310126 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
-				685A9BD725123A7500766678 /* LaunchScreen.storyboard */,
-				685A9BD225123A6A00766678 /* Main.storyboard */,
+				680336062513FD8700FE99D6 /* Main.storyboard */,
+				680336082513FDAD00FE99D6 /* Launch Screen.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -424,13 +427,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				685A9BD925123A7500766678 /* LaunchScreen.storyboard in Resources */,
+				680336072513FD8700FE99D6 /* Main.storyboard in Resources */,
 				680335FB25138EA500FE99D6 /* FeatureFieldTableViewCell.xib in Resources */,
 				68CB244A2513575E00B43815 /* Localizable.strings in Resources */,
 				68C5880125129C1B00407D83 /* TransformerHeaderView.xib in Resources */,
 				685A9BD625123A7500766678 /* Assets.xcassets in Resources */,
-				685A9BD425123A6A00766678 /* Main.storyboard in Resources */,
 				6809EDA8251287F200F3A27D /* TranformersTableViewCell.xib in Resources */,
+				680336092513FDAD00FE99D6 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				680336052513FA2700FE99D6 /* BattleViewController.swift in Sources */,
 				6809EDAF2512885100F3A27D /* UITableViewHeader+Extension.swift in Sources */,
 				685A9BD125123A6A00766678 /* TransformersListViewController.swift in Sources */,
 				6809ED9E2512507A00F3A27D /* AppStrings.swift in Sources */,
@@ -574,22 +578,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		685A9BD225123A6A00766678 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				685A9BD325123A6A00766678 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		685A9BD725123A7500766678 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				685A9BD825123A7500766678 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		68CB244C2513575E00B43815 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

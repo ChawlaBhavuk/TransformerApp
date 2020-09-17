@@ -140,6 +140,60 @@
             </objects>
             <point key="canvasLocation" x="1888" y="117"/>
         </scene>
+        <!--Battle View Controller-->
+        <scene sceneID="aab-rC-FwQ">
+            <objects>
+                <viewController storyboardIdentifier="BattleViewController" id="2Yx-m4-fh1" customClass="BattleViewController" customModule="TransformerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kes-fF-i1h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvR-7n-B6Q">
+                                <rect key="frame" x="16" y="812" width="382" height="50"/>
+                                <color key="backgroundColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XHb-UJ-94D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Survivors">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitClicked:" destination="cJE-6W-uZ7" eventType="touchUpInside" id="RNC-Ht-aod"/>
+                                    <action selector="survivorClicked:" destination="2Yx-m4-fh1" eventType="touchUpInside" id="BqX-8M-Vog"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p2D-ek-yId">
+                                <rect key="frame" x="0.0" y="44" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="p2D-ek-yId" firstAttribute="trailing" secondItem="3nK-Xx-wTt" secondAttribute="trailing" id="Bl2-Ry-X5n"/>
+                            <constraint firstItem="NvR-7n-B6Q" firstAttribute="leading" secondItem="kes-fF-i1h" secondAttribute="leading" constant="16" id="ELf-PI-uvI"/>
+                            <constraint firstItem="3nK-Xx-wTt" firstAttribute="trailing" secondItem="NvR-7n-B6Q" secondAttribute="trailing" constant="16" id="Sio-zn-wY2"/>
+                            <constraint firstItem="p2D-ek-yId" firstAttribute="top" secondItem="3nK-Xx-wTt" secondAttribute="top" id="dMU-VO-h1j"/>
+                            <constraint firstItem="p2D-ek-yId" firstAttribute="leading" secondItem="3nK-Xx-wTt" secondAttribute="leading" id="k9U-78-amk"/>
+                            <constraint firstItem="3nK-Xx-wTt" firstAttribute="bottom" secondItem="NvR-7n-B6Q" secondAttribute="bottom" id="lK1-df-roT"/>
+                            <constraint firstItem="p2D-ek-yId" firstAttribute="leading" secondItem="kes-fF-i1h" secondAttribute="leading" id="laL-ah-9Gv"/>
+                            <constraint firstItem="NvR-7n-B6Q" firstAttribute="top" secondItem="p2D-ek-yId" secondAttribute="bottom" constant="16" id="nxY-8N-aEW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3nK-Xx-wTt"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="p2D-ek-yId" id="K6I-0k-rd0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gt9-z0-yCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2696" y="119"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="41g-Fp-Fx4">
             <objects>
