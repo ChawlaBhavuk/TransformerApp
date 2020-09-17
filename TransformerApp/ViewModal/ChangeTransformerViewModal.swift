@@ -29,15 +29,47 @@ class ChangeTransformerViewModal: NSObject {
     var team: Team = .autobots
 
     var handleData: ((_ value: String?, _ type: Features) -> Void)?
-    var transformer = CustomTransformer()
+    var customTransformer = CustomTransformer()
     var networkManager: NetworkRouter = NetworkManager()
     var showAlert: (() -> Void)?
     var showErrorAlert: ((String) -> Void)?
     var showLoader:(() -> Void)?
     var removeLoader:(() -> Void)?
+    var changeTeam:((_ team: Team) -> Void)?
+    var operation: Operation = .add
     override init() {
         super.init()
         self.recieveCallbacks()
+    }
+
+    enum Operation {
+        case add
+        case edit
+    }
+
+    func setData(transformer: Transformer) {
+        operation = .edit
+        customTransformer.strength = transformer.strength
+        customTransformer.intelligence = transformer.intelligence
+        customTransformer.speed = transformer.speed
+        customTransformer.endurance = transformer.endurance
+        customTransformer.rank = transformer.rank
+        customTransformer.courage = transformer.courage
+        customTransformer.firepower = transformer.firepower
+        customTransformer.skill = transformer.skill
+        customTransformer.name = transformer.name
+        customTransformer.id = transformer.id
+        customTransformer.team = transformer.team
+        if let team = customTransformer.team {
+            if team == "D" {
+                self.team = .decepticons
+                self.changeTeam?(.decepticons)
+            }
+            if team == "A" {
+                self.team = .autobots
+                self.changeTeam?(.autobots)
+            }
+        }
     }
 
     /// Assign data according to each field
@@ -45,82 +77,73 @@ class ChangeTransformerViewModal: NSObject {
         self.handleData = { (value, type) in
             switch type {
             case .strength:
-                if let value = value {
-                    self.transformer.strength = Int(value)
-                } else {
-                    self.transformer.strength = nil
-                }
+                self.customTransformer.strength = self.checkValue(value: value)
             case .intelligence:
-                if let value = value {
-                    self.transformer.intelligence = Int(value)
-                } else {
-                    self.transformer.intelligence = nil
-                }
+                self.customTransformer.intelligence = self.checkValue(value: value)
             case .speed:
-                if let value = value {
-                    self.transformer.speed = Int(value)
-                } else {
-                    self.transformer.speed = nil
-                }
+                self.customTransformer.speed = self.checkValue(value: value)
             case .endurance:
-                if let value = value {
-                    self.transformer.endurance = Int(value)
-                } else {
-                    self.transformer.endurance = nil
-                }
+                self.customTransformer.endurance = self.checkValue(value: value)
             case .rank:
-                if let value = value {
-                    self.transformer.rank = Int(value)
-                } else {
-                    self.transformer.rank = nil
-                }
+                self.customTransformer.rank = self.checkValue(value: value)
             case .courage:
-                if let value = value {
-                    self.transformer.courage = Int(value)
-                } else {
-                    self.transformer.courage = nil
-                }
+                self.customTransformer.courage = self.checkValue(value: value)
             case .firepower:
-                if let value = value {
-                    self.transformer.firepower = Int(value)
-                } else {
-                    self.transformer.firepower = nil
-                }
+                self.customTransformer.firepower = self.checkValue(value: value)
             case .skill:
-                if let value = value {
-                    self.transformer.skill = Int(value)
-                } else {
-                    self.transformer.skill = nil
-                }
+                self.customTransformer.skill = self.checkValue(value: value)
             case .name:
-                self.transformer.name = value
+                self.customTransformer.name = value
             }
         }
     }
 
+    func checkValue(value: String?) -> Int? {
+        if let value = value {
+            return Int(value)
+        } else {
+            return nil
+        }
+    }
 
     /// Send Data to server
-    /// - Parameter transformer: CustomTransformer's object
-    func sendData(transformer: CustomTransformer) {
+    /// - Parameter customTransformer: CustomTransformer's object
+    func sendData(customTransformer: CustomTransformer) {
         var dict = [String: Any]()
-        dict[CustomTransformer.SerializationKeys.courage] = transformer.courage
-        dict[CustomTransformer.SerializationKeys.endurance] = transformer.endurance
-        dict[CustomTransformer.SerializationKeys.firepower] = transformer.firepower
-        dict[CustomTransformer.SerializationKeys.id] = 0
-        dict[CustomTransformer.SerializationKeys.intelligence] = transformer.intelligence
-        dict[CustomTransformer.SerializationKeys.name] = transformer.name
-        dict[CustomTransformer.SerializationKeys.rank] = transformer.rank
-        dict[CustomTransformer.SerializationKeys.speed] = transformer.speed
-        dict[CustomTransformer.SerializationKeys.strength] = transformer.strength
-        dict[CustomTransformer.SerializationKeys.skill] = transformer.skill
+        dict[CustomTransformer.SerializationKeys.courage] = customTransformer.courage
+        dict[CustomTransformer.SerializationKeys.endurance] = customTransformer.endurance
+        dict[CustomTransformer.SerializationKeys.firepower] = customTransformer.firepower
+        dict[CustomTransformer.SerializationKeys.intelligence] = customTransformer.intelligence
+        dict[CustomTransformer.SerializationKeys.name] = customTransformer.name
+        dict[CustomTransformer.SerializationKeys.rank] = customTransformer.rank
+        dict[CustomTransformer.SerializationKeys.speed] = customTransformer.speed
+        dict[CustomTransformer.SerializationKeys.strength] = customTransformer.strength
+        dict[CustomTransformer.SerializationKeys.skill] = customTransformer.skill
+        if let id = customTransformer.id, id.count > 0 {
+            dict[CustomTransformer.SerializationKeys.id] = id
+        } else {
+            dict[CustomTransformer.SerializationKeys.id] = 0
+        }
         if team == Team.autobots {
             dict[CustomTransformer.SerializationKeys.team] = "A"
         } else if team == Team.decepticons {
             dict[CustomTransformer.SerializationKeys.team] = "D"
         }
+
+        var callType: ApiCall = .addData
+        switch operation {
+        case .add:
+            callType = .addData
+        case .edit:
+             callType = .editData
+        }
+        self.handleNetWorkCall(dict: dict, callType: callType)
+    }
+
+    func handleNetWorkCall(dict: [String: Any], callType: ApiCall) {
         self.showLoader?()
         networkManager.getDataFromApi(type: Transformer.self,
-                                      call: .addData, postData: dict) { [weak self] (_, error)  in
+                                      call: callType, postData: dict) { [weak self] (_, error)  in
             self?.removeLoader?()
             if error != nil {
                 self?.showErrorAlert?(AppLocalization.AlertStrings.errorMessage)

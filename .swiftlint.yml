@@ -1,13 +1,10 @@
 disabled_rules:
-#- force_try
-#- force_cast
+- identifier_name
+- function_parameter_count
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
  - Pods
 
-identifier_name:
-  warning: 1
-  error: 1
-identifier_name:
-  warning: 1
-  error: 1
+cyclomatic_complexity:
+  warning: 20
+  error: 20

@@ -45,4 +45,5 @@ enum ApiCall {
     case getData
     case addData
     case deleteData
+    case editData
 }

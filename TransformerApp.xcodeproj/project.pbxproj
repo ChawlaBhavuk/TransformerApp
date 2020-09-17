@@ -13,6 +13,7 @@
 		680335FA25138EA500FE99D6 /* FeatureFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680335F825138EA500FE99D6 /* FeatureFieldTableViewCell.swift */; };
 		680335FB25138EA500FE99D6 /* FeatureFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680335F925138EA500FE99D6 /* FeatureFieldTableViewCell.xib */; };
 		680335FD2513968400FE99D6 /* ChangeTransformerViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680335FC2513968400FE99D6 /* ChangeTransformerViewModal.swift */; };
+		680336022513F66A00FE99D6 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680336012513F66A00FE99D6 /* AppConstant.swift */; };
 		6809ED9E2512507A00F3A27D /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809ED9D2512507A00F3A27D /* AppStrings.swift */; };
 		6809EDA1251270E000F3A27D /* TransformerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDA0251270E000F3A27D /* TransformerModel.swift */; };
 		6809EDA7251287F200F3A27D /* TranformersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */; };
@@ -59,6 +60,7 @@
 		680335F825138EA500FE99D6 /* FeatureFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFieldTableViewCell.swift; sourceTree = "<group>"; };
 		680335F925138EA500FE99D6 /* FeatureFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureFieldTableViewCell.xib; sourceTree = "<group>"; };
 		680335FC2513968400FE99D6 /* ChangeTransformerViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTransformerViewModal.swift; sourceTree = "<group>"; };
+		680336012513F66A00FE99D6 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		6809ED9D2512507A00F3A27D /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
 		6809EDA0251270E000F3A27D /* TransformerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerModel.swift; sourceTree = "<group>"; };
 		6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranformersTableViewCell.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				6809ED9D2512507A00F3A27D /* AppStrings.swift */,
+				680336012513F66A00FE99D6 /* AppConstant.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				6809EDB02512885100F3A27D /* UITableViewCell+Extension.swift in Sources */,
 				68CB243E25129E3B00B43815 /* TransformerListViewModalItems.swift in Sources */,
 				680335F425138B8A00FE99D6 /* ChangeTransformerViewController.swift in Sources */,
+				680336022513F66A00FE99D6 /* AppConstant.swift in Sources */,
 				6809EDAE2512885100F3A27D /* UITableView+Operations.swift in Sources */,
 				6834B12F25124A4B00310126 /* Connectivity.swift in Sources */,
 				680335F725138C7100FE99D6 /* NSObject+Extensions.swift in Sources */,

@@ -13,7 +13,7 @@ class TransformersListViewController: UIViewController {
 
     var viewModel = TransformerListViewModal()
 
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.tableFooterView = UIView()
             tableView.separatorStyle = .none
@@ -23,6 +23,7 @@ class TransformersListViewController: UIViewController {
             tableView.registerHeader(headerClass: TransformerHeaderView.self)
         }
     }
+    @IBOutlet weak var battleBtn: UIButton!
 
     var networkManager: NetworkRouter = NetworkManager()
 
@@ -36,33 +37,46 @@ class TransformersListViewController: UIViewController {
         viewModel.fetchTransformers()
     }
 
-    @IBAction func addButtonClicked(_ sender: Any) {
+    @IBAction private func addButtonClicked(_ sender: UIBarButtonItem) {
+        self.pushToAddEditTransformer()
+    }
+
+    @IBAction private func battleClicked(_ sender: UIButton) {
+    }
+
+    @IBAction private func clearClicked(_ sender: UIBarButtonItem) {
+        viewModel.clearSession()
+    }
+
+    private func pushToAddEditTransformer(transformer: Transformer? = nil) {
         guard let newViewController = self.storyboard?.instantiateViewController(withIdentifier:
             ChangeTransformerViewController.className) as? ChangeTransformerViewController else {
                 return
         }
+        newViewController.transformer = transformer
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
 
     // MARK: Data handler from view model
 
     /// handling responses from view model
-   func responseHandlerFromViewModal() {
+    private func responseHandlerFromViewModal() {
 
-       self.viewModel.showLoader = {
-           SVProgressHUD.show(withStatus: AppLocalization.loading)
-       }
+        self.viewModel.showLoader = {
+            SVProgressHUD.show(withStatus: AppLocalization.loading)
+        }
 
-       self.viewModel.removeLoader = {
-           SVProgressHUD.dismiss()
-       }
+        self.viewModel.removeLoader = {
+            SVProgressHUD.dismiss()
+        }
 
-       viewModel.reloadData = { [weak self] in
-           DispatchQueue.main.async {
-               self?.tableView.resetBackgroundView()
-               self?.tableView.reloadData()
-           }
-       }
+        viewModel.reloadData = { [weak self] in
+            DispatchQueue.main.async {
+                self?.battleBtn.isHidden = false
+                self?.tableView.resetBackgroundView()
+                self?.tableView.reloadData()
+            }
+        }
 
         viewModel.reloadSections = { [weak self] (section: Int) in
             self?.tableView?.beginUpdates()
@@ -70,7 +84,14 @@ class TransformersListViewController: UIViewController {
             self?.tableView?.endUpdates()
         }
 
-   }
+        viewModel.reloadDataWithEmptyMessage = { [weak self] in
+            DispatchQueue.main.async {
+                self?.battleBtn.isHidden = true
+                self?.tableView.setEmptyView(title: AppLocalization.noData, message: AppLocalization.addData)
+                self?.tableView.reloadData()
+            }
+        }
+    }
 
 }
 
@@ -110,15 +131,18 @@ extension TransformersListViewController: UITableViewDelegate, UITableViewDataSo
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
-      let deleteAction = UITableViewRowAction(style: .destructive,
-                                            title: AppLocalization.Actions.delete) { _, _ in
+        let deleteAction = UITableViewRowAction(style: .destructive,
+                                                title: AppLocalization.Actions.delete) { _, _ in
         self.viewModel.deleteTransformer(id: self.viewModel.items[indexPath.section].transformer[indexPath.row].id)
-      }
-      let editAction = UITableViewRowAction(style: .normal,
+        }
+        let editAction = UITableViewRowAction(style: .normal,
                                               title: AppLocalization.Actions.edit) { _, _ in
-      }
-      editAction.backgroundColor = .green
-      return [deleteAction, editAction]
+        self.pushToAddEditTransformer(transformer:
+            self.viewModel.items[indexPath.section].transformer[indexPath.row])
+
+        }
+        editAction.backgroundColor = .green
+        return [deleteAction, editAction]
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

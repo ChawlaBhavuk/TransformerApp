@@ -33,14 +33,35 @@ class FeatureFieldTableViewCell: UITableViewCell {
     /// - Parameters:
     ///   - value: name of field
     ///   - type: feature type of field
-    func setData(value: String, type: Features) {
+    func setData(value: String, type: Features, customTransformer: CustomTransformer) {
         self.type = type
         if type == .name {
             textField.keyboardType = .default
         } else {
             textField.keyboardType = .numberPad
         }
+        textField.text = ""
         nameLabel.text = value + ":-"
+        switch type {
+        case .strength:
+            textField.text = customTransformer.strength?.description
+        case .intelligence:
+            textField.text = customTransformer.intelligence?.description
+        case .speed:
+            textField.text = customTransformer.speed?.description
+        case .endurance:
+            textField.text = customTransformer.endurance?.description
+        case .rank:
+            textField.text = customTransformer.rank?.description
+        case .courage:
+            textField.text = customTransformer.courage?.description
+        case .firepower:
+            textField.text = customTransformer.firepower?.description
+        case .skill:
+            textField.text = customTransformer.skill?.description
+        case .name:
+            textField.text = customTransformer.name?.description
+        }
     }
 
 }

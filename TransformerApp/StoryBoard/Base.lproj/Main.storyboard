@@ -17,13 +17,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="edz-pZ-DVu">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2q-d4-jha">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <color key="backgroundColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LAy-6C-y8I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Battle">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="battleClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ss7-zU-5ha"/>
+                                    <action selector="submitClicked:" destination="cJE-6W-uZ7" eventType="touchUpInside" id="W8t-9Z-KNi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="edz-pZ-DVu" secondAttribute="bottom" id="jmH-bv-Yh0"/>
+                            <constraint firstItem="C2q-d4-jha" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OK4-uJ-tgD"/>
+                            <constraint firstItem="C2q-d4-jha" firstAttribute="top" secondItem="edz-pZ-DVu" secondAttribute="bottom" constant="16" id="WzW-Bs-foU"/>
+                            <constraint firstAttribute="trailing" secondItem="C2q-d4-jha" secondAttribute="trailing" constant="16" id="aEz-Lw-hjM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="C2q-d4-jha" secondAttribute="bottom" constant="16" id="eVc-9C-Il9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="edz-pZ-DVu" secondAttribute="trailing" id="n73-y3-3O5"/>
                             <constraint firstItem="edz-pZ-DVu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="t2G-gT-Fdt"/>
                             <constraint firstItem="edz-pZ-DVu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vBf-Gy-twA"/>
@@ -31,6 +54,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="RHK-f5-vbF">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="ATH-FQ-5Yq">
+                            <connections>
+                                <action selector="clearClicked:" destination="BYZ-38-t0r" id="dew-M9-iOO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add " id="ghi-5f-f6P">
                             <connections>
                                 <action selector="addButtonClicked:" destination="BYZ-38-t0r" id="Pwm-f9-yh7"/>
@@ -38,6 +66,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="battleBtn" destination="C2q-d4-jha" id="Jge-Dm-aMg"/>
                         <outlet property="tableView" destination="edz-pZ-DVu" id="kmb-1m-3Mw"/>
                     </connections>
                 </viewController>
@@ -73,6 +102,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xYr-lu-72F"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

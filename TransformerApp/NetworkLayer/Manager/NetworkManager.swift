@@ -53,6 +53,7 @@ class NetworkManager: NetworkRouter {
                     completion(jsonObject, nil)
                 } catch let error {
                     completion(nil, nil)
+                    print(errors?.localizedDescription as Any)
                     print(error.localizedDescription)
                 }
             }
@@ -105,6 +106,9 @@ class NetworkManager: NetworkRouter {
                 return self.commonEndPoint(token: token, httpMethod: .post, postData: postData)
             case .deleteData:
                 return self.commonEndPoint(token: token, httpMethod: .delete, postData: postData)
+            case .editData:
+                return self.commonEndPoint(token: token, httpMethod: .put, postData: postData)
+
             default:
                  return nil
             }

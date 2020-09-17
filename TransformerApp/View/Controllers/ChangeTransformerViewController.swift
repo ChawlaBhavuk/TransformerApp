@@ -18,7 +18,6 @@ class ChangeTransformerViewController: UIViewController {
         }
     }
 
-    var team: Team = .autobots
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.tableFooterView = UIView()
@@ -30,43 +29,51 @@ class ChangeTransformerViewController: UIViewController {
     }
 
     var viewModel = ChangeTransformerViewModal()
+    var transformer: Transformer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = AppLocalization.tranformers
-        viewModel.team = team
+        viewModel.team = .autobots
         self.responseHandlerFromviewModel()
     }
 
     @IBAction func segmentTapped(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            team = .autobots
+            viewModel.team = .autobots
         case 1:
-            team = .decepticons
+            viewModel.team = .decepticons
         default:
             break
         }
     }
 
     @IBAction func submitClicked(_ sender: UIButton) {
-        viewModel.sendData(transformer: viewModel.transformer)
+        viewModel.sendData(customTransformer: viewModel.customTransformer)
     }
 
     // MARK: Data handler from view model
 
     /// handling responses from view model
     func responseHandlerFromviewModel() {
-        viewModel.showAlert = {
-            DispatchQueue.main.async {
-                self.showAlert()
-            }
-
+        viewModel.changeTeam = { [weak self] team in
+            self?.segmentControl.selectedSegmentIndex = team.rawValue
         }
 
-        viewModel.showErrorAlert = { message in
+        if let transformer = transformer {
+            viewModel.setData(transformer: transformer)
+        }
+
+        viewModel.showAlert = { [weak self] in
             DispatchQueue.main.async {
-                self.showErrorAlert(error: message)
+                self?.showAlert()
+            }
+        }
+
+        viewModel.showErrorAlert = { [weak self] message in
+            DispatchQueue.main.async {
+                self?.showErrorAlert(error: message)
             }
         }
 
@@ -77,6 +84,7 @@ class ChangeTransformerViewController: UIViewController {
         self.viewModel.removeLoader = {
             SVProgressHUD.dismiss()
         }
+
     }
 
     /// showing alert on error
@@ -127,7 +135,8 @@ extension ChangeTransformerViewController: UITableViewDelegate, UITableViewDataS
             FeatureFieldTableViewCell.self, forIndexPath: indexPath)
         cell.delegate = self
         cell.setData(value: Features.allCases[indexPath.row].rawValue.localized(),
-                     type: Features.allCases[indexPath.row])
+                     type: Features.allCases[indexPath.row],
+                     customTransformer: viewModel.customTransformer)
         return cell
     }
 

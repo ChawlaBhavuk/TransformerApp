@@ -41,12 +41,8 @@ struct AppLocalization {
 
     static let tranformers = "Tranformers".localized()
     static let tranformersList = "Tranformers List".localized()
-    static let deliveryDetails = "Delivery Details".localized()
-    static let atString = "at".localized()
     static let noInternetConnection = "No internet Connection available. Please Try Again.".localized()
-
     static let loading = "Loading".localized() + "..."
-
     static let noData = "No data found.".localized()
-    static let pullToRefresh = "Pull to Refresh for Data".localized()
+    static let addData = "Click on Add to add new Transformer".localized()
 }

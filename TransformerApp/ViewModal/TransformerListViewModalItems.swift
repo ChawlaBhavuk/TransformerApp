@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum Team {
-    case autobots
-    case decepticons
+enum Team: Int {
+    case autobots = 0
+    case decepticons = 1
 }
 
 protocol TransformerListViewModelItem {

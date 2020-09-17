@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 class TransformerListViewModal: NSObject {
 
@@ -15,6 +16,7 @@ class TransformerListViewModal: NSObject {
     var showLoader:(() -> Void)?
     var removeLoader:(() -> Void)?
     var reloadSections: ((_ section: Int) -> Void)?
+    var reloadDataWithEmptyMessage:(() -> Void)?
 
     // MARK: Other members
     var items = [TransformerListViewModelItem]()
@@ -28,14 +30,19 @@ class TransformerListViewModal: NSObject {
             self?.removeLoader?()
             self?.items.removeAll()
             guard let jsonData = jsonData, jsonData.transformers.count > 0 else {
+                self?.reloadDataWithEmptyMessage?()
                 return
             }
             let autobotsArray = jsonData.transformers.filter { $0.team == "A" }
             let decepticonsArray = jsonData.transformers.filter { $0.team == "D" }
-            self?.items.append(TransformerViewModelAutobotsItem(transformers:
+            if autobotsArray.count > 0 {
+                self?.items.append(TransformerViewModelAutobotsItem(transformers:
                 autobotsArray))
-            self?.items.append(TransformerViewModelDecepticonsItem(transformers:
+            }
+            if decepticonsArray.count > 0 {
+                self?.items.append(TransformerViewModelDecepticonsItem(transformers:
                 decepticonsArray))
+            }
             self?.reloadData?()
         }
     }
@@ -48,6 +55,12 @@ class TransformerListViewModal: NSObject {
                                       postData: [CustomTransformer.SerializationKeys.id: id]) { [weak self] (_, _)  in
         self?.fetchTransformers()
         }
+    }
+
+    /// Clear Token and get new token
+    func clearSession() {
+        KeychainWrapper.standard.removeAllKeys()
+        self.fetchTransformers()
     }
 
 }
