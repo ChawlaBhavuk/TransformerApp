@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class TransformersListViewController: UIViewController {
 
     var reloadSections: ((_ section: Int) -> Void)?
-    var items = [TransformerListViewModelItem]()
+    var viewModel = TransformerListViewModal()
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -28,21 +29,14 @@ class TransformersListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkManager.getDataFromApi(type: WelcomeTransformers.self, call: .getData) {
-                                        [weak self] jsonData, _  in
-            if jsonData.transformers.count > 0 {
-                let autobotsArray = jsonData.transformers.filter { $0.team == "A" }
-                let decepticonsArray = jsonData.transformers.filter { $0.team == "D" }
-                self?.items.append(TransformerViewModelAutobotsItem(transformers: autobotsArray))
-                self?.items.append(TransformerViewModelDecepticonsItem(transformers: decepticonsArray))
-            } else {
 
-            }
-//            self?.transformers = WelcomeTransformers.getFormat(transformers: jsonData.transformers)
-            print(WelcomeTransformers.getFormat(transformers: jsonData.transformers))
-            self?.reloadTableView()
-        }
+        self.navigationItem.title = AppLocalization.tranformers
+        self.responseHandlerFromViewModal()
+        self.setupUI()
+        viewModel.fetchTransformers()
+    }
 
+    func setupUI() {
         self.reloadSections = { [weak self] (section: Int) in
             self?.tableView?.beginUpdates()
             self?.tableView?.reloadSections([section], with: .fade)
@@ -56,18 +50,39 @@ class TransformersListViewController: UIViewController {
         }
     }
 
+    // MARK: Data handler from view model
+
+    /// handling responses from view model
+   func responseHandlerFromViewModal() {
+
+       self.viewModel.showLoader = {
+           SVProgressHUD.show(withStatus: AppLocalization.loading)
+       }
+
+       self.viewModel.removeLoader = {
+           SVProgressHUD.dismiss()
+       }
+
+       viewModel.reloadData = { [weak self] in
+           DispatchQueue.main.async {
+               self?.tableView.resetBackgroundView()
+               self?.tableView.reloadData()
+           }
+       }
+   }
+
 }
 
 extension TransformersListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return items.count
+        return viewModel.items.count
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueHeader(headerClass: TransformerHeaderView.self)
         headerView.section = section
-        headerView.item = items[section]
+        headerView.item = viewModel.items[section]
         headerView.delegate = self
         return headerView
     }
@@ -77,8 +92,8 @@ extension TransformersListViewController: UITableViewDelegate, UITableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if items[section].isCollapsed {
-            return items[section].transformer.count
+        if viewModel.items[section].isCollapsed {
+            return viewModel.items[section].transformer.count
         } else {
             return 0
         }
@@ -87,7 +102,7 @@ extension TransformersListViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: TranformersTableViewCell = tableView.dequeue(cellClass:
             TranformersTableViewCell.self, forIndexPath: indexPath)
-        cell.item = items[indexPath.section].transformer[indexPath.row]
+        cell.item = viewModel.items[indexPath.section].transformer[indexPath.row]
         return cell
     }
 
@@ -98,10 +113,10 @@ extension TransformersListViewController: UITableViewDelegate, UITableViewDataSo
 
 extension TransformersListViewController: TransformerHeaderViewDelegate {
     func toggleSection(header: TransformerHeaderView, section: Int) {
-            var item = items[section]
-            let collapsed = !item.isCollapsed
-            item.isCollapsed = collapsed
-            header.setCollapsed(collapsed: collapsed)
-            reloadSections?(section)
+        var item = viewModel.items[section]
+        let collapsed = !item.isCollapsed
+        item.isCollapsed = collapsed
+        header.setCollapsed(collapsed: collapsed)
+        reloadSections?(section)
     }
 }

@@ -16,20 +16,4 @@ struct AppStrings {
         static let applicationJson = "application/json"
         static let bearer = "Bearer"
     }
-
-    struct TransformersList {
-       static let strength = "Strength"
-       static let speed = "Speed"
-       static let endurance = "Endurance"
-       static let courage = "Courage"
-       static let firepower = "Firepower"
-       static let skill = "Skill"
-       static let rank = "Rank"
-       static let intelligence = "Intelligence"
-   }
-
-    struct Teams {
-        static let decepticons = "Decepticons"
-        static let autobots = "Autobots"
-    }
 }

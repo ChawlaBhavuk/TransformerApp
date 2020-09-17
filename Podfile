@@ -9,6 +9,7 @@ target 'TransformerApp' do
   pod 'SwiftLint'
   pod 'SwiftKeychainWrapper'
   pod 'Kingfisher'
+  pod 'SVProgressHUD'
 
   target 'TransformerAppTests' do
     inherit! :search_paths

@@ -25,15 +25,15 @@ class TranformersTableViewCell: UITableViewCell {
             guard let item = item else {
                 return
             }
-            nameLbl.text = item.name + "," + AppStrings.TransformersList.rank + ": " + String(item.rank)
+            nameLbl.text = item.name + "," + AppLocalization.TransformersList.rank + ": " + String(item.rank)
             let formatedString = String.init(format: "%@: %i, %@: %i, %@: %i, %@: %i, %@: %i, %@: %i, %@: %i",
-                                             AppStrings.TransformersList.strength, item.strength,
-                                             AppStrings.TransformersList.intelligence, item.intelligence,
-                                             AppStrings.TransformersList.speed, item.speed,
-                                             AppStrings.TransformersList.endurance, item.endurance,
-                                             AppStrings.TransformersList.courage, item.courage,
-                                             AppStrings.TransformersList.firepower, item.firepower,
-                                             AppStrings.TransformersList.skill, item.skill)
+                                             AppLocalization.TransformersList.strength, item.strength,
+                                             AppLocalization.TransformersList.intelligence, item.intelligence,
+                                             AppLocalization.TransformersList.speed, item.speed,
+                                             AppLocalization.TransformersList.endurance, item.endurance,
+                                             AppLocalization.TransformersList.courage, item.courage,
+                                             AppLocalization.TransformersList.firepower, item.firepower,
+                                             AppLocalization.TransformersList.skill, item.skill)
             descLbl.text = formatedString
             if let url = URL(string: item.teamIcon) {
                 self.imgeView.kf.setImage(with: url,

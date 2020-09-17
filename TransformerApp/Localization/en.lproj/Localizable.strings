@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  TransformerApp
+
+  Created by Bhavuk Chawla on 16/09/20.
+  Copyright © 2020 Bhavuk Chawla. All rights reserved.
+
+*/
+
+"Some Error occurs please try again!!" = "Some Error occurs please try again!!";
+"Tranformers" = "Tranformers";
+"No internet Connection available. Please Try Again." = "No internet Connection available. Please Try Again.";
+"Loading" = "Loading";
+"Ok" = "Ok";
+
+// Features
+
+"Strength" = "Strength";
+"Intelligence" = "Intelligence";
+"Speed" = "Speed";
+"Endurance" = "Endurance";
+"Courage" = "Courage";
+"Firepower" = "Firepower";
+"Skill" = "Skill";
+
+// Teams
+"Decepticons" = "Decepticons";
+"Autobots" = "Autobots";
+

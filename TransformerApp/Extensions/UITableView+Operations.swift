@@ -36,4 +36,8 @@ extension UITableView {
         let nib = UINib(nibName: String(describing: headerClass), bundle: nil)
         register(nib, forHeaderFooterViewReuseIdentifier: headerClass.reuseIdentifier)
     }
+    
+    func resetBackgroundView() {
+        self.backgroundView = nil
+    }
 }

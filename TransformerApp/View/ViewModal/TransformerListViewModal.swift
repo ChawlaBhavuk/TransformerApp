@@ -2,76 +2,40 @@
 //  TransformerListViewModal.swift
 //  TransformerApp
 //
-//  Created by Bhavuk Chawla on 16/09/20.
+//  Created by Bhavuk Chawla on 17/09/20.
 //  Copyright © 2020 Bhavuk Chawla. All rights reserved.
 //
 
 import Foundation
 
-enum TransformerListViewModelItemType {
-    case autobots
-    case decepticons
-}
+class TransformerListViewModal: NSObject {
 
-protocol TransformerListViewModelItem {
-    var type: TransformerListViewModelItemType { get }
-    var sectionTitle: String { get }
-    var rowCount: Int { get }
-    var isCollapsed: Bool { get set }
-    var transformer: [Transformer] { get }
-}
+    // MARK: Callbacks
+    var reloadData:(() -> Void)?
+    var showLoader:(() -> Void)?
+    var removeLoader:(() -> Void)?
 
-class TransformerViewModelAutobotsItem: TransformerListViewModelItem {
 
-    var transformer: [Transformer] {
-        return transformers
-    }
+    // MARK: Other members
+    var items = [TransformerListViewModelItem]()
+    var networkManager: NetworkRouter = NetworkManager()
 
-    var rowCount: Int {
-        return transformer.count
-    }
+    /// for calling first time check data exist in DB or not
+    func fetchTransformers() {
+        self.showLoader?()
+         networkManager.getDataFromApi(type: WelcomeTransformers.self, call: .getData) {
+                                                [weak self] jsonData, _  in
+            self?.removeLoader?()
+            if jsonData.transformers.count > 0 {
+                let autobotsArray = jsonData.transformers.filter { $0.team == "A" }
+                let decepticonsArray = jsonData.transformers.filter { $0.team == "D" }
+                self?.items.append(TransformerViewModelAutobotsItem(transformers: autobotsArray))
+                self?.items.append(TransformerViewModelDecepticonsItem(transformers: decepticonsArray))
+                self?.reloadData?()
+            } else {
 
-    var type: TransformerListViewModelItemType {
-        return .autobots
-    }
-
-    var sectionTitle: String {
-        return AppStrings.Teams.autobots
-    }
-
-    var isCollapsed = true
-
-    var transformers: [Transformer]
-
-    init(transformers: [Transformer]) {
-       self.transformers = transformers
-    }
-
-}
-
-class TransformerViewModelDecepticonsItem: TransformerListViewModelItem {
-    var transformer: [Transformer] {
-        return transformers
-    }
-
-    var rowCount: Int {
-        transformer.count
-    }
-
-    var type: TransformerListViewModelItemType {
-        return .decepticons
-    }
-
-    var sectionTitle: String {
-        return AppStrings.Teams.decepticons
-    }
-
-    var isCollapsed = true
-
-    var transformers: [Transformer]
-
-    init(transformers: [Transformer]) {
-       self.transformers = transformers
+            }
+        }
     }
 
 }
