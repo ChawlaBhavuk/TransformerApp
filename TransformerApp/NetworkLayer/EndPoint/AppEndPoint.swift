@@ -12,18 +12,26 @@ struct EndPointType {
     var baseURL: URL
     var headers: [String: String]
     var httpMethod: HTTPMethod
+    var params: Data?
 
-    init(baseURL: URL, headers: [String: String], httpMethod: HTTPMethod = .get) {
+    init(baseURL: URL, headers: [String: String], httpMethod: HTTPMethod = .get, params: [String: Any]? = nil) {
         self.baseURL = baseURL
         self.headers = headers
         self.httpMethod = httpMethod
+        if let params = params {
+            self.params = try? JSONSerialization.data(withJSONObject: params)
+        } else {
+            self.params = nil
+        }
+
     }
 }
 
-enum HTTPMethod {
-    case get
-    case put
-    case post
+enum HTTPMethod: String {
+    case get = "GET"
+    case put = "PUT"
+    case post = "POST"
+    case delete = "Delete"
 }
 
 struct APIEndPoint {
@@ -35,4 +43,6 @@ struct APIEndPoint {
 enum ApiCall {
     case getToken
     case getData
+    case addData
+    case deleteData
 }

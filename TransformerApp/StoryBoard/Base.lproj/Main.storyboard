@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IB4-fE-kax">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +30,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RHK-f5-vbF"/>
+                    <navigationItem key="navigationItem" id="RHK-f5-vbF">
+                        <barButtonItem key="rightBarButtonItem" title="Add " id="ghi-5f-f6P">
+                            <connections>
+                                <action selector="addButtonClicked:" destination="BYZ-38-t0r" id="Pwm-f9-yh7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="edz-pZ-DVu" id="kmb-1m-3Mw"/>
                     </connections>
@@ -37,6 +44,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="105.80357142857143"/>
+        </scene>
+        <!--Change Transformer View Controller-->
+        <scene sceneID="sLv-SV-4FM">
+            <objects>
+                <viewController storyboardIdentifier="ChangeTransformerViewController" id="cJE-6W-uZ7" customClass="ChangeTransformerViewController" customModule="TransformerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZBs-QM-BW8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9fM-wf-w2e">
+                                <rect key="frame" x="0.0" y="107" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1B6-Cu-Chb">
+                                <rect key="frame" x="16" y="60" width="382" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentTapped:" destination="cJE-6W-uZ7" eventType="valueChanged" id="1lU-od-oA0"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICG-DM-hSb">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <color key="backgroundColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="xYr-lu-72F"/>
+                                </constraints>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitClicked:" destination="cJE-6W-uZ7" eventType="touchUpInside" id="I23-5t-gHb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ICG-DM-hSb" firstAttribute="bottom" secondItem="vVC-dB-Jdq" secondAttribute="bottom" constant="-16" id="8GD-yH-1dH"/>
+                            <constraint firstItem="9fM-wf-w2e" firstAttribute="trailing" secondItem="vVC-dB-Jdq" secondAttribute="trailing" id="AsX-ve-vWq"/>
+                            <constraint firstItem="ICG-DM-hSb" firstAttribute="top" secondItem="9fM-wf-w2e" secondAttribute="bottom" constant="16" id="EsO-1G-60e"/>
+                            <constraint firstItem="ICG-DM-hSb" firstAttribute="leading" secondItem="vVC-dB-Jdq" secondAttribute="leading" constant="16" id="NbI-BY-x46"/>
+                            <constraint firstItem="1B6-Cu-Chb" firstAttribute="leading" secondItem="vVC-dB-Jdq" secondAttribute="leading" constant="16" id="fo5-sW-tNL"/>
+                            <constraint firstItem="9fM-wf-w2e" firstAttribute="top" secondItem="1B6-Cu-Chb" secondAttribute="bottom" constant="16" id="jra-E2-wY1"/>
+                            <constraint firstItem="9fM-wf-w2e" firstAttribute="leading" secondItem="vVC-dB-Jdq" secondAttribute="leading" id="n2c-SK-BJ3"/>
+                            <constraint firstItem="vVC-dB-Jdq" firstAttribute="trailing" secondItem="1B6-Cu-Chb" secondAttribute="trailing" constant="16" id="we0-55-787"/>
+                            <constraint firstItem="vVC-dB-Jdq" firstAttribute="trailing" secondItem="ICG-DM-hSb" secondAttribute="trailing" constant="16" id="xLM-XP-LGO"/>
+                            <constraint firstItem="1B6-Cu-Chb" firstAttribute="top" secondItem="vVC-dB-Jdq" secondAttribute="top" constant="16" id="zdf-vK-1aI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vVC-dB-Jdq"/>
+                    </view>
+                    <connections>
+                        <outlet property="segmentControl" destination="1B6-Cu-Chb" id="HGu-aQ-DmX"/>
+                        <outlet property="tableView" destination="9fM-wf-w2e" id="kBq-dW-cnA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ab-Kb-quD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1888" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="41g-Fp-Fx4">
@@ -57,4 +129,5 @@
             <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -28,3 +28,31 @@ struct Transformer: Codable {
         case teamIcon = "team_icon"
     }
 }
+
+// MARK: - CustomTransformer
+struct CustomTransformer {
+    var courage, endurance, firepower: Int?
+    var id: String?
+    var intelligence: Int?
+    var name: String?
+    var rank, skill, speed, strength: Int?
+    var team: String?
+
+    struct SerializationKeys {
+        static let courage = "courage"
+        static let endurance = "endurance"
+        static let firepower = "firepower"
+        static let id = "id"
+        static let intelligence = "intelligence"
+        static let name = "name"
+        static let rank = "rank"
+        static let skill = "skill"
+        static let speed = "speed"
+        static let strength = "strength"
+        static let team = "team"
+    }
+
+}
+
+// MARK: - EmptyModel
+struct EmptyModel: Codable { }

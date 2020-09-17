@@ -11,7 +11,6 @@ import SVProgressHUD
 
 class TransformersListViewController: UIViewController {
 
-    var reloadSections: ((_ section: Int) -> Void)?
     var viewModel = TransformerListViewModal()
 
     @IBOutlet weak var tableView: UITableView! {
@@ -29,25 +28,20 @@ class TransformersListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationItem.title = AppLocalization.tranformers
+        self.navigationItem.title = AppLocalization.tranformersList
         self.responseHandlerFromViewModal()
-        self.setupUI()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         viewModel.fetchTransformers()
     }
 
-    func setupUI() {
-        self.reloadSections = { [weak self] (section: Int) in
-            self?.tableView?.beginUpdates()
-            self?.tableView?.reloadSections([section], with: .fade)
-            self?.tableView?.endUpdates()
+    @IBAction func addButtonClicked(_ sender: Any) {
+        guard let newViewController = self.storyboard?.instantiateViewController(withIdentifier:
+            ChangeTransformerViewController.className) as? ChangeTransformerViewController else {
+                return
         }
-    }
-
-    func reloadTableView() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        self.navigationController?.pushViewController(newViewController, animated: true)
     }
 
     // MARK: Data handler from view model
@@ -69,10 +63,18 @@ class TransformersListViewController: UIViewController {
                self?.tableView.reloadData()
            }
        }
+
+        viewModel.reloadSections = { [weak self] (section: Int) in
+            self?.tableView?.beginUpdates()
+            self?.tableView?.reloadSections([section], with: .fade)
+            self?.tableView?.endUpdates()
+        }
+
    }
 
 }
 
+// MARK: TableView Delegates
 extension TransformersListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -106,17 +108,31 @@ extension TransformersListViewController: UITableViewDelegate, UITableViewDataSo
         return cell
     }
 
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+      let deleteAction = UITableViewRowAction(style: .destructive,
+                                            title: AppLocalization.Actions.delete) { _, _ in
+        self.viewModel.deleteTransformer(id: self.viewModel.items[indexPath.section].transformer[indexPath.row].id)
+      }
+      let editAction = UITableViewRowAction(style: .normal,
+                                              title: AppLocalization.Actions.edit) { _, _ in
+      }
+      editAction.backgroundColor = .green
+      return [deleteAction, editAction]
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }
 }
 
+// MARK: TableView Header Delegates
 extension TransformersListViewController: TransformerHeaderViewDelegate {
     func toggleSection(header: TransformerHeaderView, section: Int) {
         var item = viewModel.items[section]
         let collapsed = !item.isCollapsed
         item.isCollapsed = collapsed
         header.setCollapsed(collapsed: collapsed)
-        reloadSections?(section)
+        viewModel.reloadSections?(section)
     }
 }

@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum TransformerListViewModelItemType {
+enum Team {
     case autobots
     case decepticons
 }
 
 protocol TransformerListViewModelItem {
-    var type: TransformerListViewModelItemType { get }
+    var type: Team { get }
     var sectionTitle: String { get }
     var rowCount: Int { get }
     var isCollapsed: Bool { get set }
@@ -31,7 +31,7 @@ class TransformerViewModelAutobotsItem: TransformerListViewModelItem {
         return transformer.count
     }
 
-    var type: TransformerListViewModelItemType {
+    var type: Team {
         return .autobots
     }
 
@@ -58,7 +58,7 @@ class TransformerViewModelDecepticonsItem: TransformerListViewModelItem {
         transformer.count
     }
 
-    var type: TransformerListViewModelItemType {
+    var type: Team {
         return .decepticons
     }
 

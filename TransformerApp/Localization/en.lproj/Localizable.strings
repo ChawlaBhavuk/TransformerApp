@@ -11,7 +11,17 @@
 "Tranformers" = "Tranformers";
 "No internet Connection available. Please Try Again." = "No internet Connection available. Please Try Again.";
 "Loading" = "Loading";
+
+
+//AlertStrings
+"Success" = "Success";
 "Ok" = "Ok";
+"Cancel" = "Cancel";
+"Data Saved Successfully" = "Data Saved Successfully";
+
+//Transformers
+"Tranformers List" = "Tranformers List";
+"Tranformers" = "Tranformers";
 
 // Features
 
@@ -27,3 +37,6 @@
 "Decepticons" = "Decepticons";
 "Autobots" = "Autobots";
 
+// TransformerList
+"Delete" = "Delete";
+"Edit" = "Edit";

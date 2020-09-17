@@ -33,14 +33,16 @@ class TransformerHeaderView: UITableViewHeaderFooterView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapHeader)))
     }
 
+    /// Even called when you tap header
     @objc private func didTapHeader() {
         delegate?.toggleSection(header: self, section: section)
     }
 
+    /// Change arrow direction
+    /// - Parameter collapsed: check header is collapsed or not
     func setCollapsed(collapsed: Bool) {
         arrowLabel?.rotate(collapsed ? 0.0 : .pi)
     }

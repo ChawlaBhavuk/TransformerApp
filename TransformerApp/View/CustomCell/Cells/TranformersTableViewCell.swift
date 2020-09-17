@@ -20,6 +20,7 @@ class TranformersTableViewCell: UITableViewCell {
         }
     }
 
+    /// Set data to view
     var item: Transformer? {
         didSet {
             guard let item = item else {

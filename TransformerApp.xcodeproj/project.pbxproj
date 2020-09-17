@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		21BEA97B19005D6DBE78A3BA /* Pods_TransformerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11FA98184A1177C9A8A79284 /* Pods_TransformerAppTests.framework */; };
+		680335F425138B8A00FE99D6 /* ChangeTransformerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680335F325138B8A00FE99D6 /* ChangeTransformerViewController.swift */; };
+		680335F725138C7100FE99D6 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680335F625138C7100FE99D6 /* NSObject+Extensions.swift */; };
+		680335FA25138EA500FE99D6 /* FeatureFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680335F825138EA500FE99D6 /* FeatureFieldTableViewCell.swift */; };
+		680335FB25138EA500FE99D6 /* FeatureFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680335F925138EA500FE99D6 /* FeatureFieldTableViewCell.xib */; };
+		680335FD2513968400FE99D6 /* ChangeTransformerViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680335FC2513968400FE99D6 /* ChangeTransformerViewModal.swift */; };
 		6809ED9E2512507A00F3A27D /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809ED9D2512507A00F3A27D /* AppStrings.swift */; };
 		6809EDA1251270E000F3A27D /* TransformerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDA0251270E000F3A27D /* TransformerModel.swift */; };
 		6809EDA7251287F200F3A27D /* TranformersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */; };
@@ -49,6 +54,11 @@
 /* Begin PBXFileReference section */
 		11FA98184A1177C9A8A79284 /* Pods_TransformerAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransformerAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		339A3F9C0926E10DBF8269C9 /* Pods-TransformerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformerAppTests.release.xcconfig"; path = "Target Support Files/Pods-TransformerAppTests/Pods-TransformerAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		680335F325138B8A00FE99D6 /* ChangeTransformerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTransformerViewController.swift; sourceTree = "<group>"; };
+		680335F625138C7100FE99D6 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
+		680335F825138EA500FE99D6 /* FeatureFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFieldTableViewCell.swift; sourceTree = "<group>"; };
+		680335F925138EA500FE99D6 /* FeatureFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureFieldTableViewCell.xib; sourceTree = "<group>"; };
+		680335FC2513968400FE99D6 /* ChangeTransformerViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTransformerViewModal.swift; sourceTree = "<group>"; };
 		6809ED9D2512507A00F3A27D /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
 		6809EDA0251270E000F3A27D /* TransformerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerModel.swift; sourceTree = "<group>"; };
 		6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranformersTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,6 +114,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		680335FE2513A8CE00FE99D6 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				68C587FE25129C1B00407D83 /* TransformerHeaderView.swift */,
+				68C587FF25129C1B00407D83 /* TransformerHeaderView.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		680335FF2513A8D600FE99D6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */,
+				6809EDA6251287F200F3A27D /* TranformersTableViewCell.xib */,
+				680335F825138EA500FE99D6 /* FeatureFieldTableViewCell.swift */,
+				680335F925138EA500FE99D6 /* FeatureFieldTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		6809ED9C2512506800F3A27D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +153,6 @@
 		6809EDA22512851A00F3A27D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				68CB243C25129E2400B43815 /* ViewModal */,
 				6809EDA42512872C00F3A27D /* CustomCell */,
 				6809EDA32512871700F3A27D /* Controllers */,
 			);
@@ -134,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				685A9BD025123A6A00766678 /* TransformersListViewController.swift */,
+				680335F325138B8A00FE99D6 /* ChangeTransformerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -141,10 +171,8 @@
 		6809EDA42512872C00F3A27D /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				68C587FE25129C1B00407D83 /* TransformerHeaderView.swift */,
-				68C587FF25129C1B00407D83 /* TransformerHeaderView.xib */,
-				6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */,
-				6809EDA6251287F200F3A27D /* TranformersTableViewCell.xib */,
+				680335FF2513A8D600FE99D6 /* Cells */,
+				680335FE2513A8CE00FE99D6 /* Header */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -152,6 +180,7 @@
 		6809EDAA2512882F00F3A27D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				680335F625138C7100FE99D6 /* NSObject+Extensions.swift */,
 				68CB24442513541E00B43815 /* Extension+Bundle.swift */,
 				68CB24452513541E00B43815 /* Extension+String.swift */,
 				6809EDAB2512885000F3A27D /* UITableView+Operations.swift */,
@@ -253,6 +282,7 @@
 				6834B12A2512489F00310126 /* StoryBoard */,
 				6834B13425124A7300310126 /* NetworkLayer */,
 				6809ED9F251270C300F3A27D /* Model */,
+				68CB243C25129E2400B43815 /* ViewModal */,
 				6809EDA22512851A00F3A27D /* View */,
 			);
 			path = TransformerApp;
@@ -272,6 +302,7 @@
 			children = (
 				68CB243D25129E3B00B43815 /* TransformerListViewModalItems.swift */,
 				68CB2448251354D300B43815 /* TransformerListViewModal.swift */,
+				680335FC2513968400FE99D6 /* ChangeTransformerViewModal.swift */,
 			);
 			path = ViewModal;
 			sourceTree = "<group>";
@@ -391,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				685A9BD925123A7500766678 /* LaunchScreen.storyboard in Resources */,
+				680335FB25138EA500FE99D6 /* FeatureFieldTableViewCell.xib in Resources */,
 				68CB244A2513575E00B43815 /* Localizable.strings in Resources */,
 				68C5880125129C1B00407D83 /* TransformerHeaderView.xib in Resources */,
 				685A9BD625123A7500766678 /* Assets.xcassets in Resources */,
@@ -501,14 +533,18 @@
 				68CB24462513541E00B43815 /* Extension+Bundle.swift in Sources */,
 				685A9BCD25123A6A00766678 /* AppDelegate.swift in Sources */,
 				6834B13325124A5400310126 /* NetworkManager.swift in Sources */,
+				680335FA25138EA500FE99D6 /* FeatureFieldTableViewCell.swift in Sources */,
 				68CB2442251353AC00B43815 /* AppLocalization.swift in Sources */,
 				6834B13125124A4E00310126 /* AppEndPoint.swift in Sources */,
 				68C587FC25128DEA00407D83 /* UIView+Extension.swift in Sources */,
 				6809EDB02512885100F3A27D /* UITableViewCell+Extension.swift in Sources */,
 				68CB243E25129E3B00B43815 /* TransformerListViewModalItems.swift in Sources */,
+				680335F425138B8A00FE99D6 /* ChangeTransformerViewController.swift in Sources */,
 				6809EDAE2512885100F3A27D /* UITableView+Operations.swift in Sources */,
 				6834B12F25124A4B00310126 /* Connectivity.swift in Sources */,
+				680335F725138C7100FE99D6 /* NSObject+Extensions.swift in Sources */,
 				68CB2449251354D300B43815 /* TransformerListViewModal.swift in Sources */,
+				680335FD2513968400FE99D6 /* ChangeTransformerViewModal.swift in Sources */,
 				6809EDA1251270E000F3A27D /* TransformerModel.swift in Sources */,
 				6809EDA7251287F200F3A27D /* TranformersTableViewCell.swift in Sources */,
 				68C5880025129C1B00407D83 /* TransformerHeaderView.swift in Sources */,
@@ -611,7 +647,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -665,7 +701,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

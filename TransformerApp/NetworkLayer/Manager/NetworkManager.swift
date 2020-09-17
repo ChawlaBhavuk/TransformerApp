@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftKeychainWrapper
-typealias ServiceResponse<T> = (T, String?) -> Void
+typealias ServiceResponse<T> = (T?, String?) -> Void
 
 enum NetworkResponse: String {
     case authenticationError = "You need to be authenticated first."
@@ -20,34 +20,39 @@ enum NetworkResponse: String {
 }
 
 protocol NetworkRouter: class {
-    func getDataFromApi<T: Decodable>(type: T.Type, call: ApiCall, completion: @escaping ServiceResponse<T>)
+    func getDataFromApi<T: Decodable>(type: T.Type, call: ApiCall,
+                                      postData: [String: Any]?, completion: @escaping ServiceResponse<T>)
 }
 
-class  NetworkManager: NetworkRouter {
+class NetworkManager: NetworkRouter {
 
     /// for getting data from api
     /// - Parameters:
     ///   - type: Model type
     ///   - call: Api Call Type
     ///   - completion: Sending Result
-    func getDataFromApi<T: Decodable>(type: T.Type, call: ApiCall, completion: @escaping ServiceResponse<T>) {
+    func getDataFromApi<T: Decodable>(type: T.Type, call: ApiCall,
+                                      postData: [String: Any]?, completion: @escaping ServiceResponse<T>) {
 //        KeychainWrapper.standard.removeAllKeys()
-        guard let endpoint = createEndPoint(call: call) else {
+        guard let endpoint = createEndPoint(call: call, postData: postData) else {
             return
         }
         var request = URLRequest(url: endpoint.baseURL)
         for headers in endpoint.headers {
             request.setValue(headers.value, forHTTPHeaderField: headers.key)
         }
+        request.httpBody = endpoint.params
+        request.httpMethod = endpoint.httpMethod.rawValue
 
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, _, errors) in
             if self.getToken() == nil {
-                self.saveToken(type: type.self, data: data, call: call, completion: completion)
+                self.saveToken(type: type.self, data: data, call: call, postData: postData, completion: completion)
             } else {
                 do {
                     let jsonObject = try JSONDecoder().decode(T.self, from: data!)
                     completion(jsonObject, nil)
                 } catch let error {
+                    completion(nil, nil)
                     print(error.localizedDescription)
                 }
             }
@@ -62,14 +67,15 @@ class  NetworkManager: NetworkRouter {
     ///   - call: Api Call Type
     ///   - completion: Sending Result
     private func saveToken<T: Decodable>(type: T.Type, data: Data?,
-                                         call: ApiCall, completion: @escaping ServiceResponse<T>) {
+                                         call: ApiCall, postData: [String: Any]?,
+                                         completion: @escaping ServiceResponse<T>) {
         guard let data = data,
             let token = String(data: data, encoding: .utf8) else {
-                self.getDataFromApi(type: type.self, call: .getToken, completion: completion)
+                self.getDataFromApi(type: type.self, call: .getToken, postData: postData, completion: completion)
                 return
         }
         KeychainWrapper.standard.set(token, forKey: AppStrings.token)
-        self.getDataFromApi(type: type.self, call: call, completion: completion)
+        self.getDataFromApi(type: type.self, call: call, postData: postData, completion: completion)
     }
 
     /// error code messages
@@ -90,11 +96,15 @@ class  NetworkManager: NetworkRouter {
     /// - Parameters:
     ///   - call: Api Call Type
     /// - Returns: returning value of end point
-   private  func createEndPoint(call: ApiCall) -> EndPointType? {
+   private  func createEndPoint(call: ApiCall, postData: [String: Any]?) -> EndPointType? {
         if let token = self.getToken() {
             switch call {
             case .getData:
-                return self.commonEndPoint(token: token, httpMethod: .get)
+                return self.commonEndPoint(token: token, httpMethod: .get, postData: postData)
+            case .addData:
+                return self.commonEndPoint(token: token, httpMethod: .post, postData: postData)
+            case .deleteData:
+                return self.commonEndPoint(token: token, httpMethod: .delete, postData: postData)
             default:
                  return nil
             }
@@ -114,15 +124,19 @@ class  NetworkManager: NetworkRouter {
     ///   - token: Authorization token
     ///   - httpMethod: Request type
     /// - Returns: End point of call
-    private func commonEndPoint(token: String, httpMethod: HTTPMethod) -> EndPointType? {
-        let endpoint = APIEndPoint.baseUrl + APIEndPoint.transformers
+    private func commonEndPoint(token: String, httpMethod: HTTPMethod, postData: [String: Any]?) -> EndPointType? {
+        var endpoint = APIEndPoint.baseUrl + APIEndPoint.transformers
+        if httpMethod == .delete,
+            let id = postData?[CustomTransformer.SerializationKeys.id] as? String {
+            endpoint += "/" + id
+        }
         guard let url = URL(string: endpoint) else {
            return nil
         }
         var headers = [String: String]()
         headers[AppStrings.Headers.authorization] = AppStrings.Headers.bearer + " " + token
         headers[AppStrings.Headers.contentType] = AppStrings.Headers.applicationJson
-        let endPoint = EndPointType(baseURL: url, headers: headers, httpMethod: .get)
+        let endPoint = EndPointType(baseURL: url, headers: headers, httpMethod: httpMethod, params: postData)
         return endPoint
     }
 
