@@ -22,7 +22,7 @@
 		680336112514B60A00FE99D6 /* BattleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6803360F2514B60A00FE99D6 /* BattleTableViewCell.swift */; };
 		680336122514B60A00FE99D6 /* BattleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680336102514B60A00FE99D6 /* BattleTableViewCell.xib */; };
 		680336142514D02200FE99D6 /* SurvivorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680336132514D02100FE99D6 /* SurvivorViewController.swift */; };
-		680336182514DAD900FE99D6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680336172514DAD900FE99D6 /* BaseViewController.swift */; };
+		6803361B2514EABE00FE99D6 /* TransformerListViewModalTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6803361A2514EABE00FE99D6 /* TransformerListViewModalTestCases.swift */; };
 		6809ED9E2512507A00F3A27D /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809ED9D2512507A00F3A27D /* AppStrings.swift */; };
 		6809EDA1251270E000F3A27D /* TransformerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDA0251270E000F3A27D /* TransformerModel.swift */; };
 		6809EDA7251287F200F3A27D /* TranformersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */; };
@@ -33,10 +33,15 @@
 		6834B12F25124A4B00310126 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834B12E25124A4B00310126 /* Connectivity.swift */; };
 		6834B13125124A4E00310126 /* AppEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834B13025124A4E00310126 /* AppEndPoint.swift */; };
 		6834B13325124A5400310126 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834B13225124A5400310126 /* NetworkManager.swift */; };
+		684A5B08251508AF002F2C80 /* TransformersListViewControllerTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A5B07251508AF002F2C80 /* TransformersListViewControllerTestCases.swift */; };
+		684A5B0A25150C48002F2C80 /* BattleViewModelTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A5B0925150C48002F2C80 /* BattleViewModelTestCases.swift */; };
 		685A9BCD25123A6A00766678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685A9BCC25123A6A00766678 /* AppDelegate.swift */; };
 		685A9BD125123A6A00766678 /* TransformersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685A9BD025123A6A00766678 /* TransformersListViewController.swift */; };
 		685A9BD625123A7500766678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 685A9BD525123A7500766678 /* Assets.xcassets */; };
 		685A9BE425123A7500766678 /* TransformerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685A9BE325123A7500766678 /* TransformerAppTests.swift */; };
+		68BC1F1C25151A9A007F20BC /* SurvivorViewControllerTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BC1F1B25151A9A007F20BC /* SurvivorViewControllerTestCases.swift */; };
+		68BC1F1E25151CA0007F20BC /* ChangeTransformerViewControllerTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BC1F1D25151CA0007F20BC /* ChangeTransformerViewControllerTestCases.swift */; };
+		68BC1F2025151E4B007F20BC /* ChangeTransformerViewModalTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BC1F1F25151E4B007F20BC /* ChangeTransformerViewModalTestCases.swift */; };
 		68C587FC25128DEA00407D83 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C587FB25128DEA00407D83 /* UIView+Extension.swift */; };
 		68C5880025129C1B00407D83 /* TransformerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C587FE25129C1B00407D83 /* TransformerHeaderView.swift */; };
 		68C5880125129C1B00407D83 /* TransformerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C587FF25129C1B00407D83 /* TransformerHeaderView.xib */; };
@@ -76,7 +81,7 @@
 		6803360F2514B60A00FE99D6 /* BattleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleTableViewCell.swift; sourceTree = "<group>"; };
 		680336102514B60A00FE99D6 /* BattleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleTableViewCell.xib; sourceTree = "<group>"; };
 		680336132514D02100FE99D6 /* SurvivorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurvivorViewController.swift; sourceTree = "<group>"; };
-		680336172514DAD900FE99D6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		6803361A2514EABE00FE99D6 /* TransformerListViewModalTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerListViewModalTestCases.swift; sourceTree = "<group>"; };
 		6809ED9D2512507A00F3A27D /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
 		6809EDA0251270E000F3A27D /* TransformerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerModel.swift; sourceTree = "<group>"; };
 		6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranformersTableViewCell.swift; sourceTree = "<group>"; };
@@ -87,6 +92,8 @@
 		6834B12E25124A4B00310126 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		6834B13025124A4E00310126 /* AppEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEndPoint.swift; sourceTree = "<group>"; };
 		6834B13225124A5400310126 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		684A5B07251508AF002F2C80 /* TransformersListViewControllerTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersListViewControllerTestCases.swift; sourceTree = "<group>"; };
+		684A5B0925150C48002F2C80 /* BattleViewModelTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewModelTestCases.swift; sourceTree = "<group>"; };
 		685A9BC925123A6A00766678 /* TransformerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransformerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685A9BCC25123A6A00766678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		685A9BD025123A6A00766678 /* TransformersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersListViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +102,9 @@
 		685A9BDF25123A7500766678 /* TransformerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransformerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		685A9BE325123A7500766678 /* TransformerAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerAppTests.swift; sourceTree = "<group>"; };
 		685A9BE525123A7500766678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68BC1F1B25151A9A007F20BC /* SurvivorViewControllerTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurvivorViewControllerTestCases.swift; sourceTree = "<group>"; };
+		68BC1F1D25151CA0007F20BC /* ChangeTransformerViewControllerTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTransformerViewControllerTestCases.swift; sourceTree = "<group>"; };
+		68BC1F1F25151E4B007F20BC /* ChangeTransformerViewModalTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTransformerViewModalTestCases.swift; sourceTree = "<group>"; };
 		68C587FB25128DEA00407D83 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		68C587FE25129C1B00407D83 /* TransformerHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformerHeaderView.swift; sourceTree = "<group>"; };
 		68C587FF25129C1B00407D83 /* TransformerHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransformerHeaderView.xib; sourceTree = "<group>"; };
@@ -152,6 +162,16 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		680336192514EA8C00FE99D6 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				6803361A2514EABE00FE99D6 /* TransformerListViewModalTestCases.swift */,
+				684A5B0925150C48002F2C80 /* BattleViewModelTestCases.swift */,
+				68BC1F1F25151E4B007F20BC /* ChangeTransformerViewModalTestCases.swift */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
 		6809ED9C2512506800F3A27D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,7 +206,6 @@
 				680335F325138B8A00FE99D6 /* ChangeTransformerViewController.swift */,
 				680336042513FA2700FE99D6 /* BattleViewController.swift */,
 				680336132514D02100FE99D6 /* SurvivorViewController.swift */,
-				680336172514DAD900FE99D6 /* BaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -274,6 +293,16 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		684A5B0625150892002F2C80 /* ViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				684A5B07251508AF002F2C80 /* TransformersListViewControllerTestCases.swift */,
+				68BC1F1B25151A9A007F20BC /* SurvivorViewControllerTestCases.swift */,
+				68BC1F1D25151CA0007F20BC /* ChangeTransformerViewControllerTestCases.swift */,
+			);
+			path = ViewTests;
+			sourceTree = "<group>";
+		};
 		685A9BC025123A6A00766678 = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +343,8 @@
 		685A9BE225123A7500766678 /* TransformerAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				684A5B0625150892002F2C80 /* ViewTests */,
+				680336192514EA8C00FE99D6 /* ViewModelTests */,
 				685A9BE325123A7500766678 /* TransformerAppTests.swift */,
 				685A9BE525123A7500766678 /* Info.plist */,
 			);
@@ -579,7 +610,6 @@
 				6803360B251499EE00FE99D6 /* BattleViewModel.swift in Sources */,
 				6809EDA7251287F200F3A27D /* TranformersTableViewCell.swift in Sources */,
 				68C5880025129C1B00407D83 /* TransformerHeaderView.swift in Sources */,
-				680336182514DAD900FE99D6 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +617,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68BC1F1C25151A9A007F20BC /* SurvivorViewControllerTestCases.swift in Sources */,
+				684A5B0A25150C48002F2C80 /* BattleViewModelTestCases.swift in Sources */,
+				684A5B08251508AF002F2C80 /* TransformersListViewControllerTestCases.swift in Sources */,
+				6803361B2514EABE00FE99D6 /* TransformerListViewModalTestCases.swift in Sources */,
+				68BC1F1E25151CA0007F20BC /* ChangeTransformerViewControllerTestCases.swift in Sources */,
+				68BC1F2025151E4B007F20BC /* ChangeTransformerViewModalTestCases.swift in Sources */,
 				685A9BE425123A7500766678 /* TransformerAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

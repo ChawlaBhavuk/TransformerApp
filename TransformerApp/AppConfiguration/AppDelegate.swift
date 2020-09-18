@@ -22,3 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
+
+extension AppDelegate {
+    class func delegate() -> AppDelegate? {
+        return UIApplication.shared.delegate as? AppDelegate
+    }
+}

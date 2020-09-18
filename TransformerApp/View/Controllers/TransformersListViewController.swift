@@ -60,7 +60,7 @@ class TransformersListViewController: UIViewController {
 
     /// Move to Add or Edit Transformer View Controller
     /// - Parameter transformer: pass transformer for data for edit
-    private func pushToAddEditTransformer(transformer: Transformer? = nil) {
+     func pushToAddEditTransformer(transformer: Transformer? = nil) {
         viewModel.deceptionsSelectedArray.removeAll()
         viewModel.autobotsSelectedArray.removeAll()
         guard let newViewController = self.storyboard?.instantiateViewController(withIdentifier:
@@ -71,7 +71,7 @@ class TransformersListViewController: UIViewController {
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
 
-    private func pushToBattleVC() {
+     func pushToBattleVC() {
         guard let newViewController = self.storyboard?.instantiateViewController(withIdentifier:
             BattleViewController.className) as? BattleViewController else {
                 return
