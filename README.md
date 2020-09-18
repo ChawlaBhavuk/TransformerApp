@@ -101,8 +101,8 @@ This shows a list of transformer who survived from battle.
 -  Real time data syncing and data caching could be implemented.
 
 # References
-[a ChawlaBhavuk/DeliveryApp](https://github.com/ChawlaBhavuk/DeliveryApp)
-[a mobikul/BhavukChawla](https://mobikul.com/create-expandable-table-view-swift/)
+[a link](https://github.com/ChawlaBhavuk/DeliveryApp)
+[a link](https://mobikul.com/create-expandable-table-view-swift/)
 
 
 # License
