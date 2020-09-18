@@ -30,7 +30,6 @@
 		6809EDAE2512885100F3A27D /* UITableView+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDAB2512885000F3A27D /* UITableView+Operations.swift */; };
 		6809EDAF2512885100F3A27D /* UITableViewHeader+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDAC2512885100F3A27D /* UITableViewHeader+Extension.swift */; };
 		6809EDB02512885100F3A27D /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDAD2512885100F3A27D /* UITableViewCell+Extension.swift */; };
-		6834B12F25124A4B00310126 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834B12E25124A4B00310126 /* Connectivity.swift */; };
 		6834B13125124A4E00310126 /* AppEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834B13025124A4E00310126 /* AppEndPoint.swift */; };
 		6834B13325124A5400310126 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6834B13225124A5400310126 /* NetworkManager.swift */; };
 		684A5B08251508AF002F2C80 /* TransformersListViewControllerTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A5B07251508AF002F2C80 /* TransformersListViewControllerTestCases.swift */; };
@@ -89,7 +88,6 @@
 		6809EDAB2512885000F3A27D /* UITableView+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Operations.swift"; sourceTree = "<group>"; };
 		6809EDAC2512885100F3A27D /* UITableViewHeader+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewHeader+Extension.swift"; sourceTree = "<group>"; };
 		6809EDAD2512885100F3A27D /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
-		6834B12E25124A4B00310126 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		6834B13025124A4E00310126 /* AppEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEndPoint.swift; sourceTree = "<group>"; };
 		6834B13225124A5400310126 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		684A5B07251508AF002F2C80 /* TransformersListViewControllerTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersListViewControllerTestCases.swift; sourceTree = "<group>"; };
@@ -264,17 +262,8 @@
 			children = (
 				6834B13725124A9200310126 /* Manager */,
 				6834B13625124A8400310126 /* EndPoint */,
-				6834B13525124A7D00310126 /* Connectivity */,
 			);
 			path = NetworkLayer;
-			sourceTree = "<group>";
-		};
-		6834B13525124A7D00310126 /* Connectivity */ = {
-			isa = PBXGroup;
-			children = (
-				6834B12E25124A4B00310126 /* Connectivity.swift */,
-			);
-			path = Connectivity;
 			sourceTree = "<group>";
 		};
 		6834B13625124A8400310126 /* EndPoint */ = {
@@ -601,7 +590,6 @@
 				680335F425138B8A00FE99D6 /* ChangeTransformerViewController.swift in Sources */,
 				680336022513F66A00FE99D6 /* AppConstant.swift in Sources */,
 				6809EDAE2512885100F3A27D /* UITableView+Operations.swift in Sources */,
-				6834B12F25124A4B00310126 /* Connectivity.swift in Sources */,
 				680335F725138C7100FE99D6 /* NSObject+Extensions.swift in Sources */,
 				68CB2449251354D300B43815 /* TransformerListViewModal.swift in Sources */,
 				680336112514B60A00FE99D6 /* BattleTableViewCell.swift in Sources */,

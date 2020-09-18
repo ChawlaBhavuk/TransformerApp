@@ -1,7 +1,11 @@
 # TransformerApp
-A project shows a list of Transformers, Where user can add, edit, delete transformers and also it shows us Battle between two teams Autobots and Decepticons, from which winner is decided and also shows survivors.
+A project shows a list of Transformers, Where the user can add, edit, delete transformers and also it shows us Battle between two teams Autobots and Decepticons, from which winner is decided and also shows survivors.
 
 # Application Screenshots
+![](Screenshots/first.png)
+![](Screenshots/second.png)
+![](Screenshots/third.png)
+![](Screenshots/fourth.png)
 
 # Requirement
 - iOS 10.0+
@@ -37,7 +41,7 @@ __Model:__ hold application data.
 - This shows list of transformers from diffrent teams
 
 ## Add, Edit and Delete
-- User can add, edit and delete any of transformer. Addition and deletion contains these fields:- 
+- User can add, edit and delete any of transformer. Addition and deletion contain these fields:-
 ● Strength
 ● Intelligence
 ● Speed
@@ -49,7 +53,7 @@ __Model:__ hold application data.
 ● Team
 
 ## Battle
-- This shows battle between diffrent transformers which are sorted by rank and tells us who wins on following rules:- 
+- This shows the battle between different transformers which are sorted by rank and tells us who wins on following rules:-
 ● The teams should be sorted by rank and faced off one on one against each other in order to determine a victor, the loser is eliminated
 ● A battle between opponents uses the following rules:
 ● If any fighter is down 4 or more points of courage and 3 or more points of strength
@@ -66,7 +70,7 @@ there’s only going to be one battle)
 ● In the event either of the above face each other (or a duplicate of each other), the game immediately ends with all competitors destroyed
 
 ## Survivor
-This shows list of transformer who survived from battle.
+This shows a list of transformer who survived from battle.
 
 # Assumptions        
 -   The app is designed for iPhones only.        
