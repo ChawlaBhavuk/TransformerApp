@@ -15,12 +15,14 @@
 "No Survivor" = "No Survivor";
 "Survivors" = "Survivors";
 "No Transformer for Battle" = "No Transformer for Battle";
+" is not valid" = " is not valid";
 
 //AlertStrings
 "Success" = "Success";
 "Ok" = "Ok";
 "Cancel" = "Cancel";
 "Data Saved Successfully" = "Data Saved Successfully";
+"Warning" = "Warning";
 
 //Transformers
 "Tranformers List" = "Tranformers List";

@@ -31,7 +31,8 @@ struct AppLocalization {
         static let edit = "Edit".localized()
     }
     struct AlertStrings {
-        static let success = "success".localized()
+        static let success = "Success".localized()
+        static let warning = "Warning".localized()
         static let errorMessage = "Some Error occurs please try again!!".localized()
         static let retry = "Retry".localized()
         static let cancel = "Cancel".localized()
@@ -55,4 +56,5 @@ struct AppLocalization {
     static let noSurvivor = "No Survivor".localized()
     static let survivors = "Survivors".localized()
     static let noTransformer = "No Transformer for Battle".localized()
+    static let isNotValid = " is not valid".localized()
 }

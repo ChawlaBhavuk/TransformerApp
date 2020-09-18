@@ -71,9 +71,9 @@ class ChangeTransformerViewController: UIViewController {
             }
         }
 
-        viewModel.showErrorAlert = { [weak self] message in
+        viewModel.showErrorAlert = { [weak self] message, retry in
             DispatchQueue.main.async {
-                self?.showErrorAlert(error: message)
+                self?.showErrorAlert(error: message, retry: retry)
             }
         }
 
@@ -90,17 +90,16 @@ class ChangeTransformerViewController: UIViewController {
     /// showing alert on error
     ///
     /// - Parameter error: title for error
-    func showErrorAlert(error: String) {
-        let alert = UIAlertController(title: AppLocalization.AlertStrings.success,
+    func showErrorAlert(error: String, retry: Bool) {
+        let alert = UIAlertController(title: AppLocalization.AlertStrings.warning,
                                       message: error, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: AppLocalization.AlertStrings.retry,
                                       style: UIAlertAction.Style.default,
                                       handler: { _ in
-
+            if retry {
+                self.viewModel.sendData(customTransformer: self.viewModel.customTransformer)
+            }
         }))
-        alert.addAction(UIAlertAction(title: AppLocalization.AlertStrings.cancel,
-                                      style: UIAlertAction.Style.cancel,
-                                      handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 

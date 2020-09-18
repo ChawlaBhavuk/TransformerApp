@@ -30,12 +30,12 @@ class ChangeTransformerViewModal: NSObject {
     // MARK: Callbacks
     var handleData: ((_ value: String?, _ type: Features) -> Void)?
     var showAlert: (() -> Void)?
-    var showErrorAlert: ((String) -> Void)?
+    var showErrorAlert: ((String, Bool) -> Void)?
     var showLoader:(() -> Void)?
     var removeLoader:(() -> Void)?
     var changeTeam:((_ team: Team) -> Void)?
 
- // MARK: Other Members
+    // MARK: Other Members
     var operation: Operation = .add
     var customTransformer = CustomTransformer()
     var networkManager: NetworkRouter = NetworkManager()
@@ -109,9 +109,46 @@ class ChangeTransformerViewModal: NSObject {
         }
     }
 
-    /// Send Data to server
-    /// - Parameter customTransformer: CustomTransformer's object
-    func sendData(customTransformer: CustomTransformer) {
+    func checkValidData(val: Int?) -> Bool {
+        let value = val ?? 0
+        if 1...10 ~= value {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    func mapAndCheckData() -> ([String: Any]?, String?) {
+        var errorMessage: String?
+        let isNotValid = AppLocalization.isNotValid
+        switch true {
+        case (customTransformer.name ?? "").count == 0:
+            errorMessage = Features.name.rawValue + isNotValid
+        case !self.checkValidData(val: customTransformer.strength):
+            errorMessage = Features.strength.rawValue + isNotValid
+        case !self.checkValidData(val: customTransformer.intelligence):
+            errorMessage = Features.intelligence.rawValue + isNotValid
+        case !self.checkValidData(val: customTransformer.speed):
+            errorMessage = Features.speed.rawValue + isNotValid
+        case  !self.checkValidData(val: customTransformer.endurance):
+            errorMessage = Features.endurance.rawValue + isNotValid
+        case !self.checkValidData(val: customTransformer.rank):
+            errorMessage = Features.rank.rawValue + isNotValid
+        case !self.checkValidData(val: customTransformer.courage):
+            errorMessage = Features.courage.rawValue + isNotValid
+        case !self.checkValidData(val: customTransformer.firepower):
+            errorMessage = Features.firepower.rawValue + isNotValid
+        case !self.checkValidData(val: customTransformer.skill):
+            errorMessage = Features.skill.rawValue + isNotValid
+
+        default:
+            break
+        }
+
+        if let errorMessage = errorMessage {
+            return (nil, errorMessage)
+        }
+
         var dict = [String: Any]()
         dict[CustomTransformer.SerializationKeys.courage] = customTransformer.courage
         dict[CustomTransformer.SerializationKeys.endurance] = customTransformer.endurance
@@ -122,6 +159,22 @@ class ChangeTransformerViewModal: NSObject {
         dict[CustomTransformer.SerializationKeys.speed] = customTransformer.speed
         dict[CustomTransformer.SerializationKeys.strength] = customTransformer.strength
         dict[CustomTransformer.SerializationKeys.skill] = customTransformer.skill
+        return (dict, nil)
+    }
+
+    /// Send Data to server
+    /// - Parameter customTransformer: CustomTransformer's object
+    func sendData(customTransformer: CustomTransformer) {
+        let value = self.mapAndCheckData()
+        if let errorMessage = value.1 {
+            self.showErrorAlert?(errorMessage, false)
+            return
+        }
+
+        guard var dict = value.0 else {
+            return
+        }
+
         if let id = customTransformer.id, id.count > 0 {
             dict[CustomTransformer.SerializationKeys.id] = id
         } else {
@@ -138,7 +191,7 @@ class ChangeTransformerViewModal: NSObject {
         case .add:
             callType = .addData
         case .edit:
-             callType = .editData
+            callType = .editData
         }
         self.handleNetWorkCall(dict: dict, callType: callType)
     }
@@ -151,12 +204,12 @@ class ChangeTransformerViewModal: NSObject {
         self.showLoader?()
         networkManager.getDataFromApi(type: Transformer.self,
                                       call: callType, postData: dict) { [weak self] (_, error)  in
-            self?.removeLoader?()
-            if error != nil {
-                self?.showErrorAlert?(AppLocalization.AlertStrings.errorMessage)
-            } else {
-                self?.showAlert?()
-            }
+                                        self?.removeLoader?()
+                                        if error != nil {
+                                            self?.showErrorAlert?(AppLocalization.AlertStrings.errorMessage, true)
+                                        } else {
+                                            self?.showAlert?()
+                                        }
         }
     }
 }

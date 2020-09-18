@@ -22,6 +22,7 @@
 		680336112514B60A00FE99D6 /* BattleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6803360F2514B60A00FE99D6 /* BattleTableViewCell.swift */; };
 		680336122514B60A00FE99D6 /* BattleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680336102514B60A00FE99D6 /* BattleTableViewCell.xib */; };
 		680336142514D02200FE99D6 /* SurvivorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680336132514D02100FE99D6 /* SurvivorViewController.swift */; };
+		680336182514DAD900FE99D6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680336172514DAD900FE99D6 /* BaseViewController.swift */; };
 		6809ED9E2512507A00F3A27D /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809ED9D2512507A00F3A27D /* AppStrings.swift */; };
 		6809EDA1251270E000F3A27D /* TransformerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDA0251270E000F3A27D /* TransformerModel.swift */; };
 		6809EDA7251287F200F3A27D /* TranformersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */; };
@@ -75,6 +76,7 @@
 		6803360F2514B60A00FE99D6 /* BattleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleTableViewCell.swift; sourceTree = "<group>"; };
 		680336102514B60A00FE99D6 /* BattleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleTableViewCell.xib; sourceTree = "<group>"; };
 		680336132514D02100FE99D6 /* SurvivorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurvivorViewController.swift; sourceTree = "<group>"; };
+		680336172514DAD900FE99D6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		6809ED9D2512507A00F3A27D /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
 		6809EDA0251270E000F3A27D /* TransformerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerModel.swift; sourceTree = "<group>"; };
 		6809EDA5251287F200F3A27D /* TranformersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranformersTableViewCell.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				680335F325138B8A00FE99D6 /* ChangeTransformerViewController.swift */,
 				680336042513FA2700FE99D6 /* BattleViewController.swift */,
 				680336132514D02100FE99D6 /* SurvivorViewController.swift */,
+				680336172514DAD900FE99D6 /* BaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				6803360B251499EE00FE99D6 /* BattleViewModel.swift in Sources */,
 				6809EDA7251287F200F3A27D /* TranformersTableViewCell.swift in Sources */,
 				68C5880025129C1B00407D83 /* TransformerHeaderView.swift in Sources */,
+				680336182514DAD900FE99D6 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
