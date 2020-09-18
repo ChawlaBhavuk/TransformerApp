@@ -99,6 +99,11 @@ This shows a list of transformer who survived from battle.
 -  UI Testing could be implemented.
 -  Real time data syncing and data caching could be implemented.
 
+# References
+[a link](https://github.com/ChawlaBhavuk/DeliveryApp)
+[a link](https://mobikul.com/create-expandable-table-view-swift/)
+
+
 # License
 ## MIT License
 
