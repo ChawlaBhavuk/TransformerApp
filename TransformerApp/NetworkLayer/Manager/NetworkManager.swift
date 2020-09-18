@@ -10,15 +10,6 @@ import Foundation
 import SwiftKeychainWrapper
 typealias ServiceResponse<T> = (T?, String?) -> Void
 
-enum NetworkResponse: String {
-    case authenticationError = "You need to be authenticated first."
-    case badRequest = "Bad request"
-    case outdated = "The url you requested is outdated."
-    case failed = "Network request failed."
-    case noData = "Response returned with no data to decode."
-    case unableToDecode = "We could not decode the response."
-}
-
 protocol NetworkRouter: class {
     func getDataFromApi<T: Decodable>(type: T.Type, call: ApiCall,
                                       postData: [String: Any]?, completion: @escaping ServiceResponse<T>)
@@ -77,19 +68,6 @@ class NetworkManager: NetworkRouter {
         }
         KeychainWrapper.standard.set(token, forKey: AppStrings.token)
         self.getDataFromApi(type: type.self, call: call, postData: postData, completion: completion)
-    }
-
-    /// error code messages
-    ///
-    /// - Parameter statusCode: status code value
-    /// - Returns: error message
-    fileprivate func handleNetworkResponse(_ statusCode: Int) -> String {
-        switch statusCode {
-        case 401...500: return NetworkResponse.authenticationError.rawValue
-        case 501...599: return NetworkResponse.badRequest.rawValue
-        case 600: return NetworkResponse.outdated.rawValue
-        default: return NetworkResponse.failed.rawValue
-        }
     }
 
     /// creating  Endpoint

@@ -51,7 +51,7 @@ class BattleViewController: UIViewController {
         }
     }
 
-    @IBAction func survivorClicked(_ sender: UIButton) {
+    @IBAction private func survivorClicked(_ sender: UIButton) {
        guard let newViewController = self.storyboard?.instantiateViewController(withIdentifier:
            SurvivorViewController.className) as? SurvivorViewController else {
                return

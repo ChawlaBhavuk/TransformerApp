@@ -11,14 +11,14 @@ import SVProgressHUD
 
 class ChangeTransformerViewController: UIViewController {
 
-    @IBOutlet weak var segmentControl: UISegmentedControl! {
+    @IBOutlet private weak var segmentControl: UISegmentedControl! {
         didSet {
             segmentControl.setTitle(AppLocalization.Teams.autobots, forSegmentAt: 0)
             segmentControl.setTitle(AppLocalization.Teams.decepticons, forSegmentAt: 1)
         }
     }
 
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.tableFooterView = UIView()
             tableView.separatorStyle = .none
@@ -38,7 +38,7 @@ class ChangeTransformerViewController: UIViewController {
         self.responseHandlerFromviewModel()
     }
 
-    @IBAction func segmentTapped(_ sender: UISegmentedControl) {
+    @IBAction private func segmentTapped(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             viewModel.team = .autobots
@@ -49,14 +49,14 @@ class ChangeTransformerViewController: UIViewController {
         }
     }
 
-    @IBAction func submitClicked(_ sender: UIButton) {
+    @IBAction private func submitClicked(_ sender: UIButton) {
         viewModel.sendData(customTransformer: viewModel.customTransformer)
     }
 
     // MARK: Data handler from view model
 
     /// handling responses from view model
-    func responseHandlerFromviewModel() {
+    private func responseHandlerFromviewModel() {
         viewModel.changeTeam = { [weak self] team in
             self?.segmentControl.selectedSegmentIndex = team.rawValue
         }
@@ -90,7 +90,7 @@ class ChangeTransformerViewController: UIViewController {
     /// showing alert on error
     ///
     /// - Parameter error: title for error
-    func showErrorAlert(error: String, retry: Bool) {
+    private func showErrorAlert(error: String, retry: Bool) {
         let alert = UIAlertController(title: AppLocalization.AlertStrings.warning,
                                       message: error, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: AppLocalization.AlertStrings.retry,
@@ -104,7 +104,7 @@ class ChangeTransformerViewController: UIViewController {
     }
 
     /// For  data alert
-    func showAlert() {
+    private func showAlert() {
         let alert = UIAlertController(title: AppLocalization.AlertStrings.success,
                                       message: AppLocalization.AlertStrings.dataSaved,
                                       preferredStyle: UIAlertController.Style.alert)

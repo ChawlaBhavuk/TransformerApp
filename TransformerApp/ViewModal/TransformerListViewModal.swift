@@ -17,6 +17,7 @@ class TransformerListViewModal: NSObject {
     var removeLoader:(() -> Void)?
     var reloadSections: ((_ section: Int) -> Void)?
     var reloadDataWithEmptyMessage:(() -> Void)?
+    var showErrorAlert: ((String, Bool) -> Void)?
 
     // MARK: Other members
     var items = [TransformerListViewModelItem]()
@@ -28,7 +29,12 @@ class TransformerListViewModal: NSObject {
     func fetchTransformers() {
         self.showLoader?()
         networkManager.getDataFromApi(type: WelcomeTransformers.self,
-                                      call: .getData, postData: nil) { [weak self] (jsonData, _)  in
+                                      call: .getData, postData: nil) { [weak self] (jsonData, error)  in
+
+            guard  error == nil else {
+                self?.showErrorAlert?(AppLocalization.AlertStrings.errorMessage, true)
+                return
+            }
             self?.removeLoader?()
             self?.items.removeAll()
             guard let jsonData = jsonData, jsonData.transformers.count > 0 else {

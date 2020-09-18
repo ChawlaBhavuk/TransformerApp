@@ -20,6 +20,7 @@ class SurvivorViewController: UIViewController {
         }
     }
     var survivors = [Transformer]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = AppLocalization.survivors

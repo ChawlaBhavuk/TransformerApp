@@ -23,7 +23,7 @@ class TransformersListViewController: UIViewController {
             tableView.registerHeader(headerClass: TransformerHeaderView.self)
         }
     }
-    @IBOutlet weak var battleBtn: UIButton! {
+    @IBOutlet private weak var battleBtn: UIButton! {
         didSet {
             battleBtn.isHidden = true
         }
@@ -116,6 +116,28 @@ class TransformersListViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
+
+        viewModel.showErrorAlert = { [weak self] message, retry in
+            DispatchQueue.main.async {
+                self?.showErrorAlert(error: message, retry: retry)
+            }
+        }
+    }
+
+    /// showing alert on error
+    ///
+    /// - Parameter error: title for error
+    private func showErrorAlert(error: String, retry: Bool) {
+        let alert = UIAlertController(title: AppLocalization.AlertStrings.warning,
+                                      message: error, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: AppLocalization.AlertStrings.retry,
+                                      style: UIAlertAction.Style.default,
+                                      handler: { _ in
+            if retry {
+                self.viewModel.fetchTransformers()
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
 }
