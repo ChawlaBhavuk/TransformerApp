@@ -77,7 +77,7 @@ extension FeatureFieldTableViewCell: UITextFieldDelegate {
             return true
         }
         guard CharacterSet(charactersIn: "0123456789").isSuperset(of: CharacterSet(charactersIn: string)),
-            let text = textField.text, text.count == 0, string.count == 1 else {
+            let text = textField.text, text.count < 2, string.count == 1 else {
             return false
         }
         return true
