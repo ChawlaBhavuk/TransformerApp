@@ -26,17 +26,20 @@ enum Features: String, CaseIterable {
 }
 
 class ChangeTransformerViewModal: NSObject {
-    var team: Team = .autobots
 
+    // MARK: Callbacks
     var handleData: ((_ value: String?, _ type: Features) -> Void)?
-    var customTransformer = CustomTransformer()
-    var networkManager: NetworkRouter = NetworkManager()
     var showAlert: (() -> Void)?
     var showErrorAlert: ((String) -> Void)?
     var showLoader:(() -> Void)?
     var removeLoader:(() -> Void)?
     var changeTeam:((_ team: Team) -> Void)?
+
+ // MARK: Other Members
     var operation: Operation = .add
+    var customTransformer = CustomTransformer()
+    var networkManager: NetworkRouter = NetworkManager()
+    var team: Team = .autobots
     override init() {
         super.init()
         self.recieveCallbacks()
@@ -140,6 +143,10 @@ class ChangeTransformerViewModal: NSObject {
         self.handleNetWorkCall(dict: dict, callType: callType)
     }
 
+    /// Send request to network manager
+    /// - Parameters:
+    ///   - dict: paramaeters of request
+    ///   - callType: which api to call
     func handleNetWorkCall(dict: [String: Any], callType: ApiCall) {
         self.showLoader?()
         networkManager.getDataFromApi(type: Transformer.self,

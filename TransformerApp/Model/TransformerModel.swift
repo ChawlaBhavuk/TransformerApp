@@ -14,7 +14,7 @@ struct WelcomeTransformers: Codable {
 }
 
 // MARK: - Transformer
-struct Transformer: Codable {
+struct Transformer: Codable, Equatable {
     let courage, endurance, firepower: Int
     let id: String
     let intelligence: Int

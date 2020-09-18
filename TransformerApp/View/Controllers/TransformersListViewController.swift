@@ -41,6 +41,11 @@ class TransformersListViewController: UIViewController {
         viewModel.fetchTransformers()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.deceptionsSelectedArray.removeAll()
+        viewModel.autobotsSelectedArray.removeAll()
+    }
+
     @IBAction private func addButtonClicked(_ sender: UIBarButtonItem) {
         self.pushToAddEditTransformer()
     }
@@ -56,6 +61,8 @@ class TransformersListViewController: UIViewController {
     /// Move to Add or Edit Transformer View Controller
     /// - Parameter transformer: pass transformer for data for edit
     private func pushToAddEditTransformer(transformer: Transformer? = nil) {
+        viewModel.deceptionsSelectedArray.removeAll()
+        viewModel.autobotsSelectedArray.removeAll()
         guard let newViewController = self.storyboard?.instantiateViewController(withIdentifier:
             ChangeTransformerViewController.className) as? ChangeTransformerViewController else {
                 return
@@ -69,6 +76,9 @@ class TransformersListViewController: UIViewController {
             BattleViewController.className) as? BattleViewController else {
                 return
         }
+        let vm = BattleViewModel(autobot: viewModel.autobotsSelectedArray,
+                                 decepticon: viewModel.deceptionsSelectedArray)
+        newViewController.viewModel = vm
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
 
@@ -140,7 +150,26 @@ extension TransformersListViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: TranformersTableViewCell = tableView.dequeue(cellClass:
             TranformersTableViewCell.self, forIndexPath: indexPath)
-        cell.item = viewModel.items[indexPath.section].transformer[indexPath.row]
+        let items = viewModel.items[indexPath.section]
+        cell.item = items.transformer[indexPath.row]
+        switch items.type {
+        case .autobots:
+            if let item  = items as? TransformerViewModelAutobotsItem,
+                viewModel.checkTransformerExist(selected: item.selectedTransformers,
+                                                transformer: items.transformer[indexPath.row]) {
+                cell.contentView.backgroundColor = UIColor.gray
+            } else {
+                cell.contentView.backgroundColor = UIColor.white
+            }
+        case .decepticons:
+            if let item  = items as? TransformerViewModelDecepticonsItem,
+                viewModel.checkTransformerExist(selected: item.selectedTransformers,
+                                                          transformer: items.transformer[indexPath.row]) {
+                cell.contentView.backgroundColor = UIColor.gray
+            } else {
+                cell.contentView.backgroundColor = UIColor.white
+            }
+        }
         return cell
     }
 
@@ -161,7 +190,20 @@ extension TransformersListViewController: UITableViewDelegate, UITableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        let item = viewModel.items[indexPath.section]
+        let tranformers = viewModel.selectTransform(transformer: item.transformer[indexPath.row],
+                                                    team: item.type)
+        switch item.type {
+        case .autobots:
+            if let item  = item as? TransformerViewModelAutobotsItem {
+                item.selectedTransformers = tranformers.0
+            }
+        case .decepticons:
+            if let item  = item as? TransformerViewModelDecepticonsItem {
+                item.selectedTransformers = tranformers.1
+            }
+        }
+        viewModel.reloadData?()
     }
 }
 

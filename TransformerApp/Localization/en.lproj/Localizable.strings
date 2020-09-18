@@ -12,7 +12,9 @@
 "No internet Connection available. Please Try Again." = "No internet Connection available. Please Try Again.";
 "Loading" = "Loading";
 "Click on Add to add new Transformer" = "Click on Add to add new Transformer";
-
+"No Survivor" = "No Survivor";
+"Survivors" = "Survivors";
+"No Transformer for Battle" = "No Transformer for Battle";
 
 //AlertStrings
 "Success" = "Success";
@@ -41,3 +43,8 @@
 // TransformerList
 "Delete" = "Delete";
 "Edit" = "Edit";
+
+//Battle
+"Tie match" = "Tie match";
+"Autobots Win" = "Autobots Win";
+"Decepticons Win" = "Decepticons Win";

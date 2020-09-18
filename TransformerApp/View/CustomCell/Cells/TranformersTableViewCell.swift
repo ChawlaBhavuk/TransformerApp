@@ -20,6 +20,11 @@ class TranformersTableViewCell: UITableViewCell {
         }
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.selectionStyle = .none
+    }
+
     /// Set data to view
     var item: Transformer? {
         didSet {

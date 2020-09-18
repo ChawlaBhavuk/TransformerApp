@@ -140,9 +140,6 @@ extension ChangeTransformerViewController: UITableViewDelegate, UITableViewDataS
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-    }
 }
 
 // MARK: Textfield dat storage Delegates

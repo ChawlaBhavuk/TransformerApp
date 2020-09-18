@@ -39,10 +39,20 @@ struct AppLocalization {
         static let dataSaved = "Data Saved Successfully".localized()
     }
 
+    struct Battle {
+         static let tieMatch = "Tie match".localized()
+         static let autobotsWin = "Autobots Win".localized()
+         static let decepticonsWin = "Decepticons Win".localized()
+
+    }
+
     static let tranformers = "Tranformers".localized()
     static let tranformersList = "Tranformers List".localized()
     static let noInternetConnection = "No internet Connection available. Please Try Again.".localized()
     static let loading = "Loading".localized() + "..."
     static let noData = "No data found.".localized()
     static let addData = "Click on Add to add new Transformer".localized()
+    static let noSurvivor = "No Survivor".localized()
+    static let survivors = "Survivors".localized()
+    static let noTransformer = "No Transformer for Battle".localized()
 }

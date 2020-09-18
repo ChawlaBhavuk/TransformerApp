@@ -54,6 +54,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="RHK-f5-vbF">
+                        <barButtonItem key="backBarButtonItem" title=" " id="aiX-rm-DkH"/>
                         <barButtonItem key="leftBarButtonItem" title="Clear" id="ATH-FQ-5Yq">
                             <connections>
                                 <action selector="clearClicked:" destination="BYZ-38-t0r" id="dew-M9-iOO"/>
@@ -211,6 +212,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hO7-sC-5hm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
+        </scene>
+        <!--Survivor View Controller-->
+        <scene sceneID="Z5v-AU-eJb">
+            <objects>
+                <viewController storyboardIdentifier="SurvivorViewController" id="IYN-lJ-QJc" customClass="SurvivorViewController" customModule="TransformerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Irm-Nx-dcO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iyD-Kl-GVQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="810"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iyD-Kl-GVQ" firstAttribute="leading" secondItem="Irm-Nx-dcO" secondAttribute="leading" id="9iZ-do-dBZ"/>
+                            <constraint firstItem="iyD-Kl-GVQ" firstAttribute="leading" secondItem="NcK-Ig-nRE" secondAttribute="leading" id="Rua-jR-5Fw"/>
+                            <constraint firstItem="NcK-Ig-nRE" firstAttribute="bottom" secondItem="iyD-Kl-GVQ" secondAttribute="bottom" constant="8" id="bld-oI-Krd"/>
+                            <constraint firstItem="iyD-Kl-GVQ" firstAttribute="top" secondItem="NcK-Ig-nRE" secondAttribute="top" id="gBO-P8-q8I"/>
+                            <constraint firstItem="iyD-Kl-GVQ" firstAttribute="trailing" secondItem="NcK-Ig-nRE" secondAttribute="trailing" id="zPQ-IT-zhu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NcK-Ig-nRE"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="iyD-Kl-GVQ" id="lGA-3a-nR1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ro-ax-gwc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3423" y="119"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>

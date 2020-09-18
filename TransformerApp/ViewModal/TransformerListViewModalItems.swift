@@ -42,6 +42,7 @@ class TransformerViewModelAutobotsItem: TransformerListViewModelItem {
     var isCollapsed = true
 
     var transformers: [Transformer]
+    var selectedTransformers = [Transformer]()
 
     init(transformers: [Transformer]) {
        self.transformers = transformers
@@ -69,6 +70,7 @@ class TransformerViewModelDecepticonsItem: TransformerListViewModelItem {
     var isCollapsed = true
 
     var transformers: [Transformer]
+    var selectedTransformers = [Transformer]()
 
     init(transformers: [Transformer]) {
        self.transformers = transformers
