@@ -31,12 +31,12 @@ class TransformerListViewModal: NSObject {
         networkManager.getDataFromApi(type: WelcomeTransformers.self,
                                       call: .getData, postData: nil) { [weak self] (jsonData, error)  in
 
+            self?.removeLoader?()
+            self?.items.removeAll()
             guard  error == nil else {
                 self?.showErrorAlert?(AppLocalization.AlertStrings.errorMessage, true)
                 return
             }
-            self?.removeLoader?()
-            self?.items.removeAll()
             guard let jsonData = jsonData, jsonData.transformers.count > 0 else {
                 self?.reloadDataWithEmptyMessage?()
                 return
